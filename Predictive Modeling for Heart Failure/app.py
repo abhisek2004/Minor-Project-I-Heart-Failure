@@ -17,7 +17,7 @@ This app performs a Decision Tree Regression on the heart failure clinical recor
 
 
 def load_data():
-    dataset = pd.read_csv('heart_failure_clinical_records_dataset.csv')
+    dataset = pd.read_csv('dataset\heart_failure_clinical_records_dataset.csv')
     dataset = dataset.drop(columns=['age'])
     return dataset
 
@@ -94,19 +94,6 @@ with st.form(key='prediction_form'):
         # Display the prediction result
         st.write(f" Predicted Outcome: {
                  'Death' if prediction[0] == 1 else 'Survival'}")
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 # import streamlit as st
