@@ -87,19 +87,31 @@ if sidebar == "Analysis":
 
 # ========= OUR MODEL PREDICTION TAB =========
 if sidebar == "Our Model Prediction":
-    st.header("lets use AI")
-    st.write("*Lets see what does it say about heart*")
-    st.subheader("Your details")
+    st.header("Let's use AI for Heart Failure Prediction")
+    st.write("Let's see what the AI says about your heart")
+    st.subheader("Enter your details")
 
-    sex = st.selectbox('Gender = Male : 1,  Female : 0', (0, 1))
-    cp = st.number_input(
-        "Chest Pain. Are u feeling any Chest pain, if yes please enter the chest pain(cp) prescribed by the doctor", min_value=0, max_value=3)
-    exng = st.selectbox(
-        "Exercise induced angina. Is there any pain while working out, doing a simple exercise or while in stress", (0, 1))
-    oldpeak = st.number_input(
-        "Previous peak, Values may be in between 0 and 6.2 but these estimated values might differ", step=0.1, format="%.2f")
-    caa = st.number_input(
-        "Number of major vessels having issue", min_value=0, max_value=4)
+    # Input fields for the heart failure prediction attributes
+    age = st.number_input("Age", min_value=1, max_value=120, value=30)
+    sex = st.selectbox('Sex (Male: 1, Female: 0)', (1, 0))
+    chest_pain_type = st.selectbox(
+        'Chest Pain Type (0: Typical Angina, 1: Atypical Angina, 2: Non-anginal Pain, 3: Asymptomatic)', (0, 1, 2, 3))
+    resting_bp = st.number_input(
+        "Resting Blood Pressure (mm Hg)", min_value=50, max_value=250, value=120)
+    cholesterol = st.number_input(
+        "Cholesterol (mg/dL)", min_value=50, max_value=600, value=200)
+    fasting_bs = st.selectbox(
+        'Fasting Blood Sugar (1: True, 0: False)', (1, 0))
+    resting_ecg = st.selectbox(
+        'Resting ECG Results (0: Normal, 1: Having ST-T Wave Abnormality, 2: Showing Left Ventricular Hypertrophy)', (0, 1, 2))
+    max_hr = st.number_input(
+        "Maximum Heart Rate Achieved", min_value=60, max_value=220, value=150)
+    exercise_angina = st.selectbox(
+        'Exercise Induced Angina (1: Yes, 0: No)', (1, 0))
+    oldpeak = st.number_input("Oldpeak (ST depression induced by exercise relative to rest)",
+                              min_value=0.0, max_value=6.2, step=0.1, format="%.1f")
+    st_slope = st.selectbox(
+        'Slope of the Peak Exercise ST Segment (0: Upsloping, 1: Flat, 2: Downsloping)', (0, 1, 2))
 
     clicked = st.button("Predict")
 
@@ -109,7 +121,8 @@ if sidebar == "Our Model Prediction":
 
             if model != None:
                 # Ensure the input features are in the correct format
-                features = np.array([[sex, cp, exng, oldpeak, caa]])
+                features = np.array([[age, sex, chest_pain_type, resting_bp, cholesterol,
+                                    fasting_bs, resting_ecg, max_hr, exercise_angina, oldpeak, st_slope]])
                 predicted = model.predict(features)
 
                 st.header("Predicted Result")
