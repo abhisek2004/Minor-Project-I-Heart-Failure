@@ -84,7 +84,6 @@ if sidebar == "Analysis":
     st.image("img/heart1.jpg")
     st.image("img/heart2.jpg")
     st.image("img/heart3.jpg")
-    st.image("img/heart3.jpg")
 
 # ========= OUR MODEL PREDICTION TAB =========
 if sidebar == "Our Model Prediction":
