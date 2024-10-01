@@ -3,7 +3,6 @@ import numpy as np
 import pandas as pd
 import joblib
 
-
 st.title(" Predictive Modeling for Heart Failure")
 
 st.sidebar.header("Page sidebar")
