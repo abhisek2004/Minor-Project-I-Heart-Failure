@@ -18,11 +18,11 @@ sidebar = st.sidebar.selectbox(
 if sidebar == "Main Page":
     st.header("The Heart Disease")
 
-    st.write("""A heart attack, also called a myocardial infarction, happens when a part of the heart muscle doesn't get enough blood.
+    st.write("""A heart attack, or myocardial infarction, occurs when a section of the heart muscle is deprived of oxygen-rich blood, leading to potential damage. In India, coronary artery disease (CAD) is the primary culprit, often stemming from lifestyle factors such as poor diet, lack of exercise, and increasing stress levels. 
 
-The more time that passes without treatment to restore blood flow, the greater the damage to the heart muscle.
+The significance of timely treatment cannot be overstated; every moment counts in restoring blood flow to minimize damage to the heart. Additionally, while CAD is the leading cause, there are instances where severe spasms of the coronary arteries can also halt blood flow, although this is less common.
 
-Coronary artery disease (CAD) is the main cause of heart attack. A less common cause is a severe spasm, or sudden contraction, of a coronary artery that can stop blood flow to the heart muscle.""")
+In India, awareness around heart health is crucial, especially given the rise in risk factors like diabetes, hypertension, and obesity. Promoting a balanced diet, regular physical activity, and stress management can significantly help in preventing heart attacks. Community health initiatives and regular health check-ups can play an important role in early detection and intervention..""")
 
     st.image("ty.jpg")
     st.subheader("Symptoms")
@@ -125,7 +125,7 @@ if sidebar == "About":
 
     st.header("About")
 
-    st.subheader("How soon after treatment will I feel better?")
+    st.subheader("How soon after treatment will You feel better?")
     st.write("""
 After you’ve had a heart attack, you’re at a higher risk of a similar occurrence. Your healthcare provider will likely recommend follow-up monitoring, testing and care to avoid future heart attacks. Some of these include:
 
@@ -147,8 +147,9 @@ In general, your heart attack symptoms should decrease as you receive treatment.
 Recovery from the treatments also varies, depending on the method of treatment. The average hospital stay for a heart attack is between four and five days. In general, expect to stay in the hospital for the following length of time:
 
 - Medication only: People treated with medication only have an average hospital stay of approximately six days.
-- PCI: Recovering from PCI is easier than surgery because it’s a less invasive method for treating a heart attack. The average length of stay for PCI is about four days.
-- CABG: Recovery from heart bypass surgery takes longer because it’s a major surgery. The average length of stay for CABG is about seven days.
+- PCI (Percutaneous Coronary Intervention): Recovering from PCI is easier than surgery because it’s a less invasive method for treating a heart attack. The average length of stay for PCI is about four days. In Indian households, where family support plays a vital role, this quicker recovery means that patients can resume their roles within the family and community without too much disruption.
+- CABG (Coronary Artery Bypass Grafting): In contrast, CABG is a major surgery that requires a longer recovery time, typically around seven days in the hospital. This extended stay means patients need more time to heal, and families often step in to provide care and support. While the longer recovery can be challenging, it also strengthens familial bonds, as loved ones rally together to help the patient. However, there are financial considerations, especially for families where the primary earner may be unable to work for weeks or months.
+- In India, the decision often involves family discussions, considering not just medical factors but also socio-economic implications. Access to healthcare facilities, post-operative support, and overall health status play crucial roles in determining the most suitable approach for heart treatment.    
     """)
 
     st.subheader("How common are heart attacks?")
