@@ -67,9 +67,9 @@ A team of people may help you through cardiac rehab, including your health care 
 if sidebar == "Dataset":
     st.write("Here's the dataset")
 
-    df = pd.read_csv("Heart datasets\heart.csv")
-    x = df.head()
-    st.table(df)
+    df = pd.read_csv("Heart datasets/heart.csv")
+    x = df.head(100)
+    st.write(x)
 
     lst = ["Main Page", "Dataset", "Analysis", "Our Model Prediction"]
 
