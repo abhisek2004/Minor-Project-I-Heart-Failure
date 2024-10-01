@@ -85,6 +85,12 @@ if sidebar == "Analysis":
     st.image("img/heart2.jpg")
     st.image("img/heart3.jpg")
 
+    # st.image("img/output.png")
+    # st.image("img/output2.png")
+    # st.image("img/output3.png")
+    # st.image("img/output4.png")
+    # st.image("img/output5.png")
+
 # ========= OUR MODEL PREDICTION TAB =========
 if sidebar == "Our Model Prediction":
     st.header("Let's use AI for Heart Failure Prediction")
