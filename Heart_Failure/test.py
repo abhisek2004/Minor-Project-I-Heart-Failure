@@ -34,7 +34,7 @@ def authenticate_user():
 def main_app():
     st.title("Predictive Modeling for Heart Failure")
 
-    st.sidebar.header("Page sidebar")
+    st.sidebar.header("Sidebar")
     st.sidebar.image("py.jpg")
     sidebar = st.sidebar.selectbox(
         "The app features",
@@ -42,18 +42,55 @@ def main_app():
          "Our Model Prediction", "About", "Team", "Feedback")
     )
 
-    # ========= MAIN PAGE TAB =========
+# ========= MAIN PAGE TAB =========
     if sidebar == "Main Page":
+        st.image("heart.jpg")
         st.header("The Heart Disease")
-        st.write("""A heart attack, or myocardial infarction, occurs when a section of the heart muscle is deprived of oxygen-rich blood, leading to potential damage. In India, coronary artery disease (CAD) is the primary culprit, often stemming from lifestyle factors such as poor diet, lack of exercise, and increasing stress levels. The significance of timely treatment cannot be overstated; every moment counts in restoring blood flow to minimize damage to the heart. Additionally, while CAD is the leading cause, there are instances where severe spasms of the coronary arteries can also halt blood flow, although this is less common. In India, awareness around heart health is crucial, especially given the rise in risk factors like diabetes, hypertension, and obesity. Promoting a balanced diet, regular physical activity, and stress management can significantly help in preventing heart attacks. Community health initiatives and regular health check-ups can play an important role in early detection and intervention..""")
+
+        st.write("""A heart attack, or myocardial infarction, occurs when a section of the heart muscle is deprived of oxygen-rich blood, leading to potential damage. In India, coronary artery disease (CAD) is the primary culprit, often stemming from lifestyle factors such as poor diet, lack of exercise, and increasing stress levels. 
+
+    The significance of timely treatment cannot be overstated; every moment counts in restoring blood flow to minimize damage to the heart. Additionally, while CAD is the leading cause, there are instances where severe spasms of the coronary arteries can also halt blood flow, although this is less common.
+
+    In India, awareness around heart health is crucial, especially given the rise in risk factors like diabetes, hypertension, and obesity. Promoting a balanced diet, regular physical activity, and stress management can significantly help in preventing heart attacks. Community health initiatives and regular health check-ups can play an important role in early detection and intervention..""")
+
         st.image("ty.jpg")
         st.subheader("Symptoms")
-        st.write("""The major symptoms of a heart attack are: - Chest pain or discomfort. Most heart attacks involve discomfort in the center or left side of the chest that lasts for more than a few minutes or that goes away and comes back. The discomfort can feel like uncomfortable pressure, squeezing, fullness, or pain. - Feeling weak, light-headed, or faint. You may also break out into a cold sweat. - Pain or discomfort in the jaw, neck, or back. - Pain or discomfort in one or both arms or shoulders. - Shortness of breath. This often comes along with chest discomfort, but shortness of breath also can happen before chest discomfort.""")
-        st.subheader("Risk factors")
-        st.write("""Several health conditions, your lifestyle, and your age and family history can increase your risk for heart disease and heart attack. These are called risk factors. About half of all Americans have at least one of the three key risk factors for heart disease: high blood pressure, high blood cholesterol, and smoking. Some risk factors cannot be controlled, such as your age or family history. But you can take steps to lower your risk by changing the factors you can control.""")
-        st.subheader("Recover after a heart attack")
-        st.write("""If you’ve had a heart attack, your heart may be damaged. This could affect your heart’s rhythm and its ability to pump blood to the rest of the body. You may also be at risk for another heart attack or conditions such as stroke, kidney disorders, and peripheral arterial disease (PAD). You can lower your chances of having future health problems following a heart attack with these steps: - Physical activity—Talk with your health care team about the things you do each day in your life and work. Your doctor may want you to limit work, travel, or sexual activity for some time after a heart attack. - Lifestyle changes—Eating a healthier diet, increasing physical activity, quitting smoking, and managing stress—in addition to taking prescribed medicines—can help improve your heart health and quality of life. Ask your health care team about attending a program called cardiac rehabilitation to help you make these lifestyle changes. - Cardiac rehabilitation—Cardiac rehabilitation is an important program for anyone recovering from a heart attack, heart failure, or other heart problem that required surgery or medical care. Cardiac rehab is a supervised program that includes Physical activity, Education about healthy living, including healthy eating, taking medicine as prescribed, and ways to help you quit smoking, Counseling to find ways to relieve stress and improve mental health. A team of people may help you through cardiac rehab, including your health care team, exercise and nutrition specialists, physical therapists, and counselors or mental health professionals.""")
 
+        st.write("""
+                The major symptoms of a heart attack are
+
+    - Chest pain or discomfort. Most heart attacks involve discomfort in the center or left side of the chest that lasts for more than a few minutes or that goes away and comes back. The discomfort can feel like uncomfortable pressure, squeezing, fullness, or pain.
+    - Feeling weak, light-headed, or faint. You may also break out into a cold sweat.
+    - Pain or discomfort in the jaw, neck, or back.
+    - Pain or discomfort in one or both arms or shoulders.
+    - Shortness of breath. This often comes along with chest discomfort, but shortness of breath also can happen before chest discomfort.
+    """)
+
+        st.subheader("Risk factors")
+
+        st.write("""Several health conditions, your lifestyle, and your age and family history can increase your risk for heart disease and heart attack. These are called risk factors. About half of all Americans have at least one of the three key risk factors for heart disease: high blood pressure, high blood cholesterol, and smoking.
+
+    Some risk factors cannot be controlled, such as your age or family history. But you can take steps to lower your risk by changing the factors you can control.
+    """)
+
+        st.subheader("Recover after a heart attack")
+
+        st.write("""
+            If you’ve had a heart attack, your heart may be damaged. This could affect your heart’s rhythm and its ability to pump blood to the rest of the body. You may also be at risk for another heart attack or conditions such as stroke, kidney disorders, and peripheral arterial disease (PAD).
+
+    You can lower your chances of having future health problems following a heart attack with these steps:
+
+    - Physical activity—Talk with your health care team about the things you do each day in your life and work. Your doctor may want you to limit work, travel, or sexual activity for some time after a heart attack.
+    - Lifestyle changes—Eating a healthier diet, increasing physical activity, quitting smoking, and managing stress—in addition to taking prescribed medicines—can help improve your heart health and quality of life. Ask your health care team about attending a program called cardiac rehabilitation to help you make these lifestyle changes.
+    - Cardiac rehabilitation—Cardiac rehabilitation is an important program for anyone recovering from a heart attack, heart failure, or other heart problem that required surgery or medical care. Cardiac rehab is a supervised program that includes
+    1. Physical activity
+    2. Education about healthy living, including healthy eating, taking medicine as prescribed, and ways to help you quit smoking
+    3. Counseling to find ways to relieve stress and improve mental health
+
+    A team of people may help you through cardiac rehab, including your health care team, exercise and nutrition specialists, physical therapists, and counselors or mental health professionals.
+
+
+    """)
     # ========= DATASET TAB =========
     if sidebar == "Dataset":
         st.write("Here's the dataset")
@@ -176,17 +213,44 @@ def main_app():
                 except Exception as e:
                     st.error(f"Error loading the model: {e}")
 
-    # ========= ABOUT TAB =========
+
+# ========= ABOUT TAB =========
     if sidebar == "About":
+
         st.header("About")
+
         st.subheader("How soon after treatment will You feel better?")
-        st.write("""After you’ve had a heart attack, you’re at a higher risk of a similar occurrence. Your healthcare provider will likely recommend follow-up monitoring, testing and care to avoid future heart attacks. Some of these include: - Heart scans: Similar to the methods used to diagnose a heart attack, these can assess the effects of your heart attack and determine if you have permanent heart damage. They can also look for signs of heart and circulatory problems that increase the chance of future heart attacks. - Stress test: These heart tests and scans that take place while you’re exercising can show potential problems that stand out only when your heart is working harder. - Cardiac rehabilitation: These programs help you improve your overall health and lifestyle, which can prevent another heart attack. Additionally, you’ll continue to take medicines — some of the ones you received for immediate treatment of your heart attack — long-term. These include: - Beta-blockers. - ACE inhibitors. - Aspirin and other blood-thinning agents.""")
+        st.write("""
+    After you’ve had a heart attack, you’re at a higher risk of a similar occurrence. Your healthcare provider will likely recommend follow-up monitoring, testing and care to avoid future heart attacks. Some of these include:
+
+    - Heart scans: Similar to the methods used to diagnose a heart attack, these can assess the effects of your heart attack and determine if you have permanent heart damage. They can also look for signs of heart and circulatory problems that increase the chance of future heart attacks.
+    - Stress test: These heart tests and scans that take place while you’re exercising can show potential problems that stand out only when your heart is working harder.
+    - Cardiac rehabilitation: These programs help you improve your overall health and lifestyle, which can prevent another heart attack.
+
+
+    Additionally, you’ll continue to take medicines — some of the ones you received for immediate treatment of your heart attack — long-term. These include:
+
+    - Beta-blockers.
+    - ACE inhibitors.
+    - Aspirin and other blood-thinning agents.""")
 
         st.subheader("How soon after treatment will I feel better?")
-        st.write("""In general, your heart attack symptoms should decrease as you receive treatment. You’ll likely have some lingering weakness and fatigue during your hospital stay and for several days after. Your healthcare provider will give you guidance on rest, medications to take, etc. Recovery from the treatments also varies, depending on the method of treatment. The average hospital stay for a heart attack is between four and five days. In general, expect to stay in the hospital for the following length of time: - Medication only: People treated with medication only have an average hospital stay of approximately six days. - PCI (Percutaneous Coronary Intervention): Recovering from PCI is easier than surgery because it’s a less invasive method for treating a heart attack. The average length of stay for PCI is about four days. In Indian households, where family support plays a vital role, this quicker recovery means that patients can resume their roles within the family and community without too much disruption. - CABG (Coronary Artery Bypass Grafting): In contrast, CABG is a major surgery that requires a longer recovery time, typically around seven days in the hospital. This extended stay means patients need more time to heal, and families often step in to provide care and support. While the longer recovery can be challenging, it also strengthens familial bonds, as loved ones rally together to help the patient. However, there are financial considerations, especially for families where the primary earner may be unable to work for weeks or months. In India, the decision often involves family discussions, considering not just medical factors but also socio-economic implications. Access to healthcare facilities, post-operative support, and overall health status play crucial roles in determining the most suitable approach for heart treatment.""")
+        st.write("""
+    In general, your heart attack symptoms should decrease as you receive treatment. You’ll likely have some lingering weakness and fatigue during your hospital stay and for several days after. Your healthcare provider will give you guidance on rest, medications to take, etc.
+
+    Recovery from the treatments also varies, depending on the method of treatment. The average hospital stay for a heart attack is between four and five days. In general, expect to stay in the hospital for the following length of time:
+
+    - Medication only: People treated with medication only have an average hospital stay of approximately six days.
+    - PCI (Percutaneous Coronary Intervention): Recovering from PCI is easier than surgery because it’s a less invasive method for treating a heart attack. The average length of stay for PCI is about four days. In Indian households, where family support plays a vital role, this quicker recovery means that patients can resume their roles within the family and community without too much disruption.
+    - CABG (Coronary Artery Bypass Grafting): In contrast, CABG is a major surgery that requires a longer recovery time, typically around seven days in the hospital. This extended stay means patients need more time to heal, and families often step in to provide care and support. While the longer recovery can be challenging, it also strengthens familial bonds, as loved ones rally together to help the patient. However, there are financial considerations, especially for families where the primary earner may be unable to work for weeks or months.
+    - In India, the decision often involves family discussions, considering not just medical factors but also socio-economic implications. Access to healthcare facilities, post-operative support, and overall health status play crucial roles in determining the most suitable approach for heart treatment.    
+        """)
 
         st.subheader("How common are heart attacks?")
-        st.write("""Heart attacks are quite common in India, with cardiovascular diseases being a leading cause of mortality. According to various studies, it’s estimated that around 1 in 4 people in India may suffer from some form of heart disease, with heart attacks increasingly affecting younger populations due to lifestyle factors, stress, and dietary habits. Urbanization, smoking, sedentary lifestyles, and increasing obesity rates contribute to this trend. Awareness and early intervention are critical, as many cases can be managed or prevented with lifestyle changes and proper medical care.""")
+        st.write("""
+    Heart attacks are quite common in India, with cardiovascular diseases being a leading cause of mortality. According to various studies, it’s estimated that around 1 in 4 people in India may suffer from some form of heart disease, with heart attacks increasingly affecting younger populations due to lifestyle factors, stress, and dietary habits.
+
+    Urbanization, smoking, sedentary lifestyles, and increasing obesity rates contribute to this trend. Awareness and early intervention are critical, as many cases can be managed or prevented with lifestyle changes and proper medical care .""")
 
     # ========= TEAM TAB =========
     if sidebar == "Team":
