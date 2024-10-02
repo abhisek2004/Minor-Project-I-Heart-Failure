@@ -114,27 +114,35 @@ def main_app():
         st.subheader("Enter your details")
 
         # Input fields for the heart failure prediction attributes
-        name = st.text_input("Name", value="", max_chars=50)
+        name = st.text_input("Name", value="", max_chars=30)
         age = st.number_input("Age", min_value=1, max_value=120, value=None)
-        sex = st.selectbox('Sex (Male: 1, Female: 0)', ("", 1, 0))
+        sex = st.selectbox('Sex ( Male  or Female)', ("", "Male", "Female"))
         chest_pain_type = st.selectbox(
-            'Chest Pain Type (0: Typical Angina, 1: Atypical Angina, 2: Non-anginal Pain, 3: Asymptomatic)', ("", 0, 1, 2, 3))
+            'Chest Pain Type (0: Typical Angina, 1: Atypical Angina, 2: Non-anginal Pain, 3: Asymptomatic)',
+            ("", "Typical Angina", "Atypical Angina",
+             "Non-anginal Pain", "Asymptomatic"))
         resting_bp = st.number_input(
             "Resting Blood Pressure (Min 68mm Hg to Max 250mm Hg )", min_value=68, max_value=250, value=None)
         cholesterol = st.number_input(
             "Cholesterol (Min 100 mg/dL to Max  600mg/dL)", min_value=50, max_value=600, value=None)
         fasting_bs = st.selectbox(
-            'Fasting Blood Sugar (1: True, 0: False)', ("", 1, 0))
+            'Fasting Blood Sugar (1: True, 0: False)', ("", True, False))
         resting_ecg = st.selectbox(
-            'Resting ECG Results (0: Normal, 1: Having ST-T Wave Abnormality, 2: Showing Left Ventricular Hypertrophy)', ("", 0, 1, 2))
+            'Resting ECG Results (0: Normal, 1: Having ST-T Wave Abnormality, 2: Showing Left Ventricular Hypertrophy)',
+            options=["", "Normal", "Having ST-T Wave Abnormality",
+                     "Showing Left Ventricular Hypertrophy"]
+        )
         max_hr = st.number_input(
             "Maximum Heart Rate Achieved" " (Min 60bpm to Max 200bpm) ", min_value=60, max_value=220, value=None)
         exercise_angina = st.selectbox(
-            'Exercise Induced Angina (1: Yes, 0: No)', ("", 1, 0))
+            'Exercise Induced Angina (1: Yes, 0: No)',
+            options=["", "Yes", "No"])
         oldpeak = st.number_input("Oldpeak (Min 0.0 to Max 6.2 ST depression induced by exercise relative to rest )",
                                   min_value=0.0, max_value=6.2, step=0.1, format="%.1f", value=None)
         st_slope = st.selectbox(
-            'Slope of the Peak Exercise ST Segment (0: Upsloping, 1: Flat, 2: Downsloping)', ("", 0, 1, 2))
+            'Slope of the Peak Exercise ST Segment (0: Upsloping, 1: Flat, 2: Downsloping)',
+            options=["", "Upsloping", "Flat", "Downsloping"]
+        )
 
         clicked = st.button("Predict")
 
