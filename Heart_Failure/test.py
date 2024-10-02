@@ -108,7 +108,8 @@ def main_app():
 
     # ========= OUR MODEL PREDICTION TAB =========
     if sidebar == "Our Model Prediction":
-        st.header("Let's use AI for Heart Failure Prediction")
+        st.image("artificial.jpg")
+        st.header("Let's use our data for Heart Failure Prediction")
         st.write("Let's see what the AI says about your heart")
         st.subheader("Enter your details")
 
@@ -119,18 +120,18 @@ def main_app():
         chest_pain_type = st.selectbox(
             'Chest Pain Type (0: Typical Angina, 1: Atypical Angina, 2: Non-anginal Pain, 3: Asymptomatic)', ("", 0, 1, 2, 3))
         resting_bp = st.number_input(
-            "Resting Blood Pressure (mm Hg)", min_value=50, max_value=250, value=None)
+            "Resting Blood Pressure (Min 68mm Hg to Max 250mm Hg )", min_value=68, max_value=250, value=None)
         cholesterol = st.number_input(
-            "Cholesterol (mg/dL)", min_value=50, max_value=600, value=None)
+            "Cholesterol (Min 100 mg/dL to Max  600mg/dL)", min_value=50, max_value=600, value=None)
         fasting_bs = st.selectbox(
             'Fasting Blood Sugar (1: True, 0: False)', ("", 1, 0))
         resting_ecg = st.selectbox(
             'Resting ECG Results (0: Normal, 1: Having ST-T Wave Abnormality, 2: Showing Left Ventricular Hypertrophy)', ("", 0, 1, 2))
         max_hr = st.number_input(
-            "Maximum Heart Rate Achieved", min_value=60, max_value=220, value=None)
+            "Maximum Heart Rate Achieved" " (Min 60bpm to Max 200bpm) ", min_value=60, max_value=220, value=None)
         exercise_angina = st.selectbox(
             'Exercise Induced Angina (1: Yes, 0: No)', ("", 1, 0))
-        oldpeak = st.number_input("Oldpeak (ST depression induced by exercise relative to rest)",
+        oldpeak = st.number_input("Oldpeak (Min 0.0 to Max 6.2 ST depression induced by exercise relative to rest )",
                                   min_value=0.0, max_value=6.2, step=0.1, format="%.1f", value=None)
         st_slope = st.selectbox(
             'Slope of the Peak Exercise ST Segment (0: Upsloping, 1: Flat, 2: Downsloping)', ("", 0, 1, 2))
