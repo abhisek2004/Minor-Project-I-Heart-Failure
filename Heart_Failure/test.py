@@ -112,36 +112,41 @@ def main_app():
         st.header("Let's use our data for Heart Failure Prediction")
         st.write("Let's see what the AI says about your heart")
         st.subheader("Enter your details")
-
+        #making dictionaries 
+        sex_options={"Male":1,"Female":0}
+        chest_pain_type_options={"Typical Angina":0,"Atypical Angina":1,"Non-anginal Pain":2,"Asymptomatic":3}
+        fasting_bs_options={"True":1,"Fasle":0}
+        fasting_ecg_options={"Normal":0,"Having ST-T Wave Abnormality":1,"Showing Left Ventricular Hypertrophy":2}
+        exercise_angina_options={"Yes":1,"No":0}
+        st_slope_option={"Upsloping":0,"Flat":1,"Downsloping":2}
         # Input fields for the heart failure prediction attributes
         name = st.text_input("Name", value="", max_chars=30)
         age = st.number_input("Age", min_value=1, max_value=120, value=None)
-        sex = st.selectbox('Sex ( Male  or Female)', ("", "Male", "Female"))
+        sex = st.selectbox('Sex ( Male  or Female)',options=list(sex_options.keys()))
         chest_pain_type = st.selectbox(
             'Chest Pain Type (0: Typical Angina, 1: Atypical Angina, 2: Non-anginal Pain, 3: Asymptomatic)',
-            ("", "Typical Angina", "Atypical Angina",
-             "Non-anginal Pain", "Asymptomatic"))
+            options=list(chest_pain_type_options.keys()))
         resting_bp = st.number_input(
             "Resting Blood Pressure (Min 68mm Hg to Max 250mm Hg )", min_value=68, max_value=250, value=None)
         cholesterol = st.number_input(
+
             "Cholesterol (Min 100 mg/dL to Max  600mg/dL)", min_value=50, max_value=600, value=None)
         fasting_bs = st.selectbox(
-            'Fasting Blood Sugar (1: True, 0: False)', ("", True, False))
+            'Fasting Blood Sugar (1: True, 0: False)', options=list(fasting_bs_options.keys()))
         resting_ecg = st.selectbox(
             'Resting ECG Results (0: Normal, 1: Having ST-T Wave Abnormality, 2: Showing Left Ventricular Hypertrophy)',
-            options=["", "Normal", "Having ST-T Wave Abnormality",
-                     "Showing Left Ventricular Hypertrophy"]
+            options=list(fasting_ecg_options.keys())
         )
         max_hr = st.number_input(
             "Maximum Heart Rate Achieved" " (Min 60bpm to Max 200bpm) ", min_value=60, max_value=220, value=None)
         exercise_angina = st.selectbox(
             'Exercise Induced Angina (1: Yes, 0: No)',
-            options=["", "Yes", "No"])
+            options=list(exercise_angina_options.keys()))
         oldpeak = st.number_input("Oldpeak (Min 0.0 to Max 6.2 ST depression induced by exercise relative to rest )",
                                   min_value=0.0, max_value=6.2, step=0.1, format="%.1f", value=None)
         st_slope = st.selectbox(
             'Slope of the Peak Exercise ST Segment (0: Upsloping, 1: Flat, 2: Downsloping)',
-            options=["", "Upsloping", "Flat", "Downsloping"]
+            options=list(st_slope_option.keys())
         )
 
         clicked = st.button("Predict")
@@ -165,8 +170,14 @@ def main_app():
                     model = joblib.load(open('model.pkl', 'rb'))
 
                     if model is not None:
-                        features = np.array([[age, sex, chest_pain_type, resting_bp, cholesterol,
-                                              fasting_bs, resting_ecg, max_hr, exercise_angina, oldpeak, st_slope]])
+                        sex_values=sex_options[sex]
+                        chest_pain_type_values=chest_pain_type_options[chest_pain_type]
+                        fasting_bs_values=fasting_bs_options[fasting_bs]
+                        resting_ecg_values=fasting_ecg_options[resting_ecg]
+                        exercise_angina_values=exercise_angina_options[exercise_angina]
+                        st_slope_values=st_slope_option[st_slope]
+                        features = np.array([[age, sex_values, chest_pain_type_values, resting_bp, cholesterol,
+                                              fasting_bs_values, resting_ecg_values, max_hr, exercise_angina_values, oldpeak, st_slope_values]])
                         predicted = model.predict(features)
 
                         st.header("Predicted Result")
