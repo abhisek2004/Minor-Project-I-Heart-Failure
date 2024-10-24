@@ -7,13 +7,12 @@ import pymongo
 # Initialize session state for authentication
 if "authenticated" not in st.session_state:
     st.session_state["authenticated"] = False
-    
+
 # MongoDB connection
 client = pymongo.MongoClient(
-    "mongodb+srv://abhisekpanda2004guddul:Y3pU0wNKOW8r1ea7@cluster0.mongodb.net/?retryWrites=true&w=majority")
-db = client.get_database("User_Login")  # Use a valid database name
-# Collection name remains unchanged
-users_collection = db.get_collection("users")
+    "mongodb+srv://abhisekpanda2004guddul:Y3pU0wNKOW8r1ea7@cluster0.0khgj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+db = client.get_database("User_Login")  # Your database name
+users_collection = db.get_collection("users")  # Your collection name
 
 # Function to handle authentication
 
