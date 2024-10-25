@@ -319,13 +319,22 @@ def main_app():
                 "Please describe the issue or report a bug:")
             uploaded_file = st.file_uploader(
                 "Attach Screenshot (optional):", type=["png", "jpg"])
+
             if uploaded_file is not None:
                 st.markdown(
                     "**<span style='color:lightgreen'>Screenshot Attached Successfully 👍🏻</span>**", unsafe_allow_html=True)
                 with st.expander("Preview Attached Screenshot"):
                     st.image(uploaded_file)
-            send_button = st.button("Send Report ✈️")
-            if send_button:
+
+            if st.button("Send Report ✈️"):
+                # Prepare data for MongoDB
+                feedback_data = {
+                    "bug_report": bug_report,
+                    "screenshot": uploaded_file.name if uploaded_file else None,
+                    "email": st.session_state.get("email"),
+                    "full_name": st.session_state.get("full_name"),
+                }
+                st.session_state["users_collection"].insert_one(feedback_data)
                 st.markdown(
                     "<span style='color:lightgreen'>Report Sent Successfully, We'll get back to you super soon ⚡</span>", unsafe_allow_html=True)
                 st.markdown(
@@ -341,8 +350,15 @@ def main_app():
             selected_star = st.radio(
                 "Select a star rating:", stars, format_func=lambda x: '⭐' * x, key="rating")
 
-            # Automatically display feedback message when a star is clicked
+            # Automatically display feedback message and send data when a star is clicked
             if selected_star:
+                feedback_rating_data = {
+                    "rating": selected_star,
+                    "email": st.session_state.get("email"),
+                    "full_name": st.session_state.get("full_name"),
+                }
+                st.session_state["users_collection"].insert_one(
+                    feedback_rating_data)
                 st.markdown(f"Thank you for your feedback! You rated us {
                             selected_star} star{'s' if selected_star > 1 else ''} 🌟")
 
