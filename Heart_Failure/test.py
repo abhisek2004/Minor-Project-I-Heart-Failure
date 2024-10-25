@@ -8,11 +8,17 @@ import pymongo
 if "authenticated" not in st.session_state:
     st.session_state["authenticated"] = False
 
-# MongoDB connection
-client = pymongo.MongoClient(
-    "mongodb+srv://abhisekpanda2004guddul:Y3pU0wNKOW8r1ea7@cluster0.0khgj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
-db = client.get_database("User_Login")  # Your database name
-users_collection = db.get_collection("users")  # Your collection name
+# MongoDB connection (initialize once)
+if "client" not in st.session_state:
+    st.session_state["client"] = pymongo.MongoClient(
+        "mongodb+srv://abhisekpanda2004guddul:Y3pU0wNKOW8r1ea7@cluster0.0khgj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+st.session_state["db"] = st.session_state["client"].get_database("User_Login")
+st.session_state["users_collection"] = st.session_state["db"].get_collection(
+    "users")
+
+# Load the model once
+if "model" not in st.session_state:
+    st.session_state["model"] = joblib.load(open('model.pkl', 'rb'))
 
 # Function to handle authentication
 
@@ -31,7 +37,8 @@ def authenticate_user():
 
     if st.button("Login"):
         # Save user data to MongoDB
-        users_collection.insert_one({"email": email, "full_name": full_name})
+        st.session_state["users_collection"].insert_one(
+            {"email": email, "full_name": full_name})
         st.session_state["authenticated"] = True
         st.success("Login successful!")
 
@@ -55,21 +62,20 @@ def main_app():
     if sidebar == "Main Page":
         st.image("heart.jpg")
         st.header("The Heart Disease")
-        st.write("""A heart attack, or myocardial infarction, occurs when a section of the heart muscle is deprived of oxygen-rich blood, leading to potential damage...""")
+        st.write("A heart attack, or myocardial infarction, occurs when a section of the heart muscle is deprived of oxygen-rich blood, leading to potential damage...")
         st.image("ty.jpg")
         st.subheader("Symptoms")
-        st.write("""The major symptoms of a heart attack are...""")
+        st.write("The major symptoms of a heart attack are...")
         st.subheader("Risk factors")
-        st.write("""Several health conditions, your lifestyle, and your age and family history can increase your risk for heart disease...""")
+        st.write("Several health conditions, your lifestyle, and your age and family history can increase your risk for heart disease...")
         st.subheader("Recover after a heart attack")
-        st.write("""If you’ve had a heart attack, your heart may be damaged...""")
+        st.write("If you’ve had a heart attack, your heart may be damaged...")
 
     # ========= DATASET TAB =========
     if sidebar == "Dataset":
         st.write("Here's the dataset")
         df = pd.read_csv("Heart_datasets/heart.csv")
-        x = df.head(100)
-        st.write(x)
+        st.write(df.head(100))
 
     # ========= ANALYSIS TAB =========
     if sidebar == "Analysis":
@@ -92,7 +98,7 @@ def main_app():
             "Typical Angina": 0, "Atypical Angina": 1, "Non-anginal Pain": 2, "Asymptomatic": 3
         }
         fasting_bs_options = {"True": 1, "False": 0}
-        fasting_ecg_options = {
+        resting_ecg_options = {
             "Normal": 0, "Having ST-T Wave Abnormality": 1, "Showing Left Ventricular Hypertrophy": 2
         }
         exercise_angina_options = {"Yes": 1, "No": 0}
@@ -112,7 +118,7 @@ def main_app():
         fasting_bs = st.selectbox('Fasting Blood Sugar (1: True, 0: False)', options=[
                                   ""] + list(fasting_bs_options.keys()))
         resting_ecg = st.selectbox('Resting ECG Results', options=[
-                                   ""] + list(fasting_ecg_options.keys()))
+                                   ""] + list(resting_ecg_options.keys()))
         max_hr = st.number_input(
             "Maximum Heart Rate Achieved (Min 60bpm to Max 220bpm)", min_value=60, max_value=220, value=None)
         exercise_angina = st.selectbox('Exercise Induced Angina', options=[
@@ -140,13 +146,14 @@ def main_app():
                 st.error("Oldpeak must be between 0.0 and 6.2.")
             else:
                 try:
-                    model = joblib.load(open('model.pkl', 'rb'))
+                    # Use the pre-loaded model
+                    model = st.session_state["model"]
 
                     if model is not None:
                         sex_values = sex_options[sex]
                         chest_pain_type_values = chest_pain_type_options[chest_pain_type]
                         fasting_bs_values = fasting_bs_options[fasting_bs]
-                        resting_ecg_values = fasting_ecg_options[resting_ecg]
+                        resting_ecg_values = resting_ecg_options[resting_ecg]
                         exercise_angina_values = exercise_angina_options[exercise_angina]
                         st_slope_values = st_slope_option[st_slope]
                         features = np.array([[age, sex_values, chest_pain_type_values, resting_bp, cholesterol,
@@ -194,11 +201,11 @@ def main_app():
     if sidebar == "About":
         st.header("About")
         st.subheader("How soon after treatment will You feel better?")
-        st.write("""After you’ve had a heart attack, you’re at a higher risk...""")
+        st.write("After you’ve had a heart attack, you’re at a higher risk...")
         st.subheader("How soon after treatment will I feel better?")
-        st.write("""In general, your heart attack symptoms should decrease...""")
+        st.write("In general, your heart attack symptoms should decrease...")
         st.subheader("How common are heart attacks?")
-        st.write("""Heart attacks are quite common in India...""")
+        st.write("Heart attacks are quite common in India...")
 
     # ========= TEAM TAB =========
     if sidebar == "Team":
