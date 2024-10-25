@@ -7,8 +7,7 @@ from io import BytesIO
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
-# Added this import for image handling
-from reportlab.pdfbase import ImageReader
+from reportlab.lib.utils import ImageReader  # Corrected import
 import datetime
 
 # Initialize session state for authentication
@@ -58,11 +57,7 @@ def create_pdf(name, age, sex, chest_pain_type, resting_bp, cholesterol, fasting
     buffer = BytesIO()
     p = canvas.Canvas(buffer, pagesize=letter)
 
-    # Set background color
-    p.setFillColor(colors.lightblue)
-    p.rect(0, 0, letter[0], letter[1], fill=1)
-
- # Set background image
+    # Set background image
     # Update this to your image path
     background_image = ImageReader("img/pdf.jpg")
     p.drawImage(background_image, 0, 0, width=letter[0], height=letter[1])
@@ -77,10 +72,10 @@ def create_pdf(name, age, sex, chest_pain_type, resting_bp, cholesterol, fasting
     p.setFillColor(colors.black)
     text_lines = [
         "Project: Heart Disease Prediction",
-        "Created by: Abhisek Panda (Lead ),",
-        "Debabrata Mishra (Data Analyst ),",
-        "Gobinda Gagan Dey (MERN Developer ),",
-        f"Download Date: {pd.Timestamp.now().date()}"
+        "Created by: Abhisek Panda (Lead 👨‍💻),",
+        "Debabrata Mishra (Data Analyst 📊),",
+        "Gobinda Gagan Dey (MERN Developer 💻),",
+        f"Download Date: {datetime.datetime.now().date()}"
     ]
 
     y_position = 700
