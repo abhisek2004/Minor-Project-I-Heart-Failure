@@ -6,6 +6,8 @@ import pymongo
 from io import BytesIO
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
+from reportlab.lib import colors
+from reportlab.lib.utils import ImageReader
 
 # Initialize session state for authentication
 if "authenticated" not in st.session_state:
@@ -29,23 +31,44 @@ if "model" not in st.session_state:
 def create_pdf(name, age, sex, chest_pain_type, resting_bp, cholesterol, fasting_bs, resting_ecg, max_hr, exercise_angina, oldpeak, st_slope, prediction_result):
     buffer = BytesIO()
     p = canvas.Canvas(buffer, pagesize=letter)
-    p.drawString(100, 750, "Heart Failure Prediction Report")
-    p.drawString(100, 730, f"Name: {name}")
-    p.drawString(100, 710, f"Age: {age}")
-    p.drawString(100, 690, f"Sex: {'Male' if sex == 1 else 'Female'}")
-    p.drawString(100, 670, f"Chest Pain Type: {chest_pain_type}")
-    p.drawString(100, 650, f"Resting Blood Pressure: {resting_bp} mm Hg")
-    p.drawString(100, 630, f"Cholesterol: {cholesterol} mg/dL")
-    p.drawString(100, 610, f"Fasting Blood Sugar: {
-                 'True' if fasting_bs == 1 else 'False'}")
-    p.drawString(100, 590, f"Resting ECG Results: {resting_ecg}")
-    p.drawString(100, 570, f"Maximum Heart Rate Achieved: {max_hr}")
-    p.drawString(100, 550, f"Exercise Induced Angina: {
-                 'Yes' if exercise_angina == 1 else 'No'}")
-    p.drawString(100, 530, f"Oldpeak: {oldpeak}")
+
+    # Update the image path to the correct filename
+    # Ensure this path is correct
+    background_image = ImageReader("img/pdf.jpg")
+    p.drawImage(background_image, 0, 0, width=letter[0], height=letter[1])
+
+    # Set font and color for the text
+    p.setFont("Helvetica-Bold", 24)
+    p.setFillColor(colors.black)
+    p.drawString(100, 750, "🫀 Heart Failure Prediction Report 🩺")
+
+    # Project Details
+    p.setFont("Helvetica", 12)
+    p.drawString(100, 720, "Project: Heart Disease Prediction")
     p.drawString(
-        100, 510, f"Slope of the Peak Exercise ST Segment: {st_slope}")
-    p.drawString(100, 490, f"Prediction Result: {prediction_result}")
+        100, 705, "Created by: Abhisek Panda, Debabrata Mishra, Gobinda Gagan Dey")
+    p.drawString(100, 690, "📅 Date: " + str(pd.Timestamp.now().date()))
+
+    # User Details
+    p.setFont("Helvetica", 14)
+    p.drawString(100, 650, f"👤 Name: {name}")
+    p.drawString(100, 630, f"🎂 Age: {age}")
+    p.drawString(100, 610, f"⚥ Sex: {'Male' if sex == 1 else 'Female'}")
+    p.drawString(100, 590, f"💔 Chest Pain Type: {chest_pain_type}")
+    p.drawString(100, 570, f"🩸 Resting Blood Pressure: {resting_bp} mm Hg")
+    p.drawString(100, 550, f"💊 Cholesterol: {cholesterol} mg/dL")
+    p.drawString(100, 530, f"🍽️ Fasting Blood Sugar: {
+                 'True' if fasting_bs == 1 else 'False'}")
+    p.drawString(100, 510, f"📈 Resting ECG Results: {resting_ecg}")
+    p.drawString(100, 490, f"❤️ Max Heart Rate Achieved: {max_hr}")
+    p.drawString(100, 470, f"🏃 Exercise Induced Angina: {
+                 'Yes' if exercise_angina == 1 else 'No'}")
+    p.drawString(100, 450, f"📉 Oldpeak: {oldpeak}")
+    p.drawString(100, 430, f"📊 Slope of the ST Segment: {st_slope}")
+
+    # Prediction Result
+    p.drawString(100, 400, f"🔍 Prediction Result: {prediction_result}")
+
     p.showPage()
     p.save()
     buffer.seek(0)
@@ -155,76 +178,67 @@ def main_app():
             elif age is None or age <= 0 or age > 120:
                 st.error("Please enter a valid age between 1 and 120.")
             elif cholesterol is None or cholesterol < 50 or cholesterol > 600:
-                st.error("Cholesterol must be between 50 and 600 mg/dL.")
-            elif resting_bp is None or resting_bp < 68 or resting_bp > 250:
                 st.error(
-                    "Resting Blood Pressure must be between 68 and 250 mm Hg.")
-            elif max_hr is None or max_hr < 60 or max_hr > 220:
-                st.error("Maximum Heart Rate must be between 60 and 220.")
-            elif oldpeak is None or oldpeak < 0.0 or oldpeak > 6.2:
-                st.error("Oldpeak must be between 0.0 and 6.2.")
+                    "Please enter a valid cholesterol level between 50 and 600.")
             else:
                 try:
-                    model = st.session_state["model"]
+                    # Convert user inputs to appropriate format for model prediction
+                    sex_values = {"Male": 1, "Female": 0}[sex]
+                    chest_pain_type_values = {"Typical Angina": 0, "Atypical Angina": 1,
+                                              "Non-anginal Pain": 2, "Asymptomatic": 3}[chest_pain_type]
+                    fasting_bs_values = {"True": 1, "False": 0}[fasting_bs]
+                    resting_ecg_values = {"Normal": 0, "Having ST-T Wave Abnormality": 1,
+                                          "Showing Left Ventricular Hypertrophy": 2}[resting_ecg]
+                    exercise_angina_values = {
+                        "Yes": 1, "No": 0}[exercise_angina]
+                    st_slope_values = {"Upsloping": 0,
+                                       "Flat": 1, "Downsloping": 2}[st_slope]
+                    features = np.array([[age, sex_values, chest_pain_type_values, resting_bp, cholesterol,
+                                          fasting_bs_values, resting_ecg_values, max_hr, exercise_angina_values, oldpeak, st_slope_values]])
+                    predicted = st.session_state["model"].predict(features)
 
-                    if model is not None:
-                        sex_values = {"Male": 1, "Female": 0}[sex]
-                        chest_pain_type_values = {
-                            "Typical Angina": 0, "Atypical Angina": 1, "Non-anginal Pain": 2, "Asymptomatic": 3}[chest_pain_type]
-                        fasting_bs_values = {"True": 1, "False": 0}[fasting_bs]
-                        resting_ecg_values = {"Normal": 0, "Having ST-T Wave Abnormality": 1,
-                                              "Showing Left Ventricular Hypertrophy": 2}[resting_ecg]
-                        exercise_angina_values = {
-                            "Yes": 1, "No": 0}[exercise_angina]
-                        st_slope_values = {"Upsloping": 0,
-                                           "Flat": 1, "Downsloping": 2}[st_slope]
-                        features = np.array([[age, sex_values, chest_pain_type_values, resting_bp, cholesterol,
-                                              fasting_bs_values, resting_ecg_values, max_hr, exercise_angina_values, oldpeak, st_slope_values]])
-                        predicted = model.predict(features)
+                    # Display header for predicted result
+                    st.header("Predicted Result")
+                    st.info(
+                        '0 (No possibility of heart attack), 1 (Future heart attack detected)')
 
-                        # Display header for predicted result
-                        st.header("Predicted Result")
-                        st.info(
-                            '0 (No possibility of heart attack), 1 (Future heart attack detected)')
+                    # Conditional message display based on prediction
+                    prediction_message = ""
+                    if predicted[0] == 0:
+                        prediction_message = "✅ Good news! No possibility of heart attack"
+                    elif predicted[0] == 1:
+                        prediction_message = "⚠ Future heart attack detected"
+                    else:
+                        st.error("Unexpected prediction value")
 
-                        # Conditional message display based on prediction
-                        prediction_message = ""
-                        if predicted[0] == 0:
-                            prediction_message = "✅ Good news! No possibility of heart attack"
-                        elif predicted[0] == 1:
-                            prediction_message = "⚠ Future heart attack detected"
-                        else:
-                            st.error("Unexpected prediction value")
+                    st.success(prediction_message)
 
-                        st.success(prediction_message)
+                    # Display the user's input values
+                    st.subheader("Your Input Values")
+                    st.write(f"**Name:** {name}")
+                    st.write(f"**Age:** {age}")
+                    st.write(
+                        f"**Sex:** {'Male' if sex_values == 1 else 'Female'}")
+                    st.write(f"**Chest Pain Type:** {chest_pain_type}")
+                    st.write(f"**Resting Blood Pressure:** {resting_bp} mm Hg")
+                    st.write(f"**Cholesterol:** {cholesterol} mg/dL")
+                    st.write(
+                        f"**Fasting Blood Sugar:** {'True' if fasting_bs_values == 1 else 'False'}")
+                    st.write(f"**Resting ECG Results:** {resting_ecg}")
+                    st.write(f"**Maximum Heart Rate Achieved:** {max_hr}")
+                    st.write(
+                        f"**Exercise Induced Angina:** {'Yes' if exercise_angina_values == 1 else 'No'}")
+                    st.write(f"**Oldpeak:** {oldpeak}")
+                    st.write(
+                        f"**Slope of the Peak Exercise ST Segment:** {st_slope}")
 
-                        # Display the user's input values
-                        st.subheader("Your Input Values")
-                        st.write(f"**Name:** {name}")
-                        st.write(f"**Age:** {age}")
-                        st.write(
-                            f"**Sex:** {'Male' if sex_values == 1 else 'Female'}")
-                        st.write(f"**Chest Pain Type:** {chest_pain_type}")
-                        st.write(
-                            f"**Resting Blood Pressure:** {resting_bp} mm Hg")
-                        st.write(f"**Cholesterol:** {cholesterol} mg/dL")
-                        st.write(
-                            f"**Fasting Blood Sugar:** {'True' if fasting_bs_values == 1 else 'False'}")
-                        st.write(f"**Resting ECG Results:** {resting_ecg}")
-                        st.write(f"**Maximum Heart Rate Achieved:** {max_hr}")
-                        st.write(
-                            f"**Exercise Induced Angina:** {'Yes' if exercise_angina_values == 1 else 'No'}")
-                        st.write(f"**Oldpeak:** {oldpeak}")
-                        st.write(
-                            f"**Slope of the Peak Exercise ST Segment:** {st_slope}")
+                    # Create PDF
+                    pdf = create_pdf(name, age, sex_values, chest_pain_type, resting_bp, cholesterol, fasting_bs_values,
+                                     resting_ecg, max_hr, exercise_angina_values, oldpeak, st_slope_values, prediction_message)
 
-                        # Create PDF
-                        pdf = create_pdf(name, age, sex_values, chest_pain_type, resting_bp, cholesterol, fasting_bs_values,
-                                         resting_ecg, max_hr, exercise_angina_values, oldpeak, st_slope_values, prediction_message)
-
-                        # Download button for PDF
-                        st.download_button(
-                            "Download PDF Report", pdf, "heart_failure_prediction_report.pdf")
+                    # Download button for PDF
+                    st.download_button(
+                        "Download PDF Report", pdf, "heart_failure_prediction_report.pdf")
 
                 except Exception as e:
                     st.error(f"An error occurred during prediction: {e}")
