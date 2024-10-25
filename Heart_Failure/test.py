@@ -3,6 +3,9 @@ import numpy as np
 import pandas as pd
 import joblib
 import pymongo
+from io import BytesIO
+from reportlab.lib.pagesizes import letter
+from reportlab.pdfgen import canvas
 
 # Initialize session state for authentication
 if "authenticated" not in st.session_state:
@@ -19,6 +22,34 @@ st.session_state["users_collection"] = st.session_state["db"].get_collection(
 # Load the model once
 if "model" not in st.session_state:
     st.session_state["model"] = joblib.load(open('model.pkl', 'rb'))
+
+# Function to create a PDF report
+
+
+def create_pdf(name, age, sex, chest_pain_type, resting_bp, cholesterol, fasting_bs, resting_ecg, max_hr, exercise_angina, oldpeak, st_slope, prediction_result):
+    buffer = BytesIO()
+    p = canvas.Canvas(buffer, pagesize=letter)
+    p.drawString(100, 750, "Heart Failure Prediction Report")
+    p.drawString(100, 730, f"Name: {name}")
+    p.drawString(100, 710, f"Age: {age}")
+    p.drawString(100, 690, f"Sex: {'Male' if sex == 1 else 'Female'}")
+    p.drawString(100, 670, f"Chest Pain Type: {chest_pain_type}")
+    p.drawString(100, 650, f"Resting Blood Pressure: {resting_bp} mm Hg")
+    p.drawString(100, 630, f"Cholesterol: {cholesterol} mg/dL")
+    p.drawString(100, 610, f"Fasting Blood Sugar: {
+                 'True' if fasting_bs == 1 else 'False'}")
+    p.drawString(100, 590, f"Resting ECG Results: {resting_ecg}")
+    p.drawString(100, 570, f"Maximum Heart Rate Achieved: {max_hr}")
+    p.drawString(100, 550, f"Exercise Induced Angina: {
+                 'Yes' if exercise_angina == 1 else 'No'}")
+    p.drawString(100, 530, f"Oldpeak: {oldpeak}")
+    p.drawString(
+        100, 510, f"Slope of the Peak Exercise ST Segment: {st_slope}")
+    p.drawString(100, 490, f"Prediction Result: {prediction_result}")
+    p.showPage()
+    p.save()
+    buffer.seek(0)
+    return buffer.read()
 
 # Function to handle authentication
 
@@ -58,7 +89,7 @@ def main_app():
          "Our Model Prediction", "About", "Team", "Feedback")
     )
 
-    # ========= MAIN PAGE TAB =========
+    # Main Page Tab
     if sidebar == "Main Page":
         st.image("heart.jpg")
         st.header("The Heart Disease")
@@ -71,13 +102,13 @@ def main_app():
         st.subheader("Recover after a heart attack")
         st.write("If you’ve had a heart attack, your heart may be damaged...")
 
-    # ========= DATASET TAB =========
+    # Dataset Tab
     if sidebar == "Dataset":
         st.write("Here's the dataset")
         df = pd.read_csv("Heart_datasets/heart.csv")
         st.write(df.head(100))
 
-    # ========= ANALYSIS TAB =========
+    # Analysis Tab
     if sidebar == "Analysis":
         st.header("Analysis")
         st.write("Insights dataset")
@@ -85,48 +116,36 @@ def main_app():
         st.image("img/heart2.jpg")
         st.image("img/heart3.jpg")
 
-    # ========= OUR MODEL PREDICTION TAB =========
+    # Our Model Prediction Tab
     if sidebar == "Our Model Prediction":
         st.image("artificial.jpg")
         st.header("Let's use our data for Heart Failure Prediction")
         st.write("Let's see what the AI says about your heart")
         st.subheader("Enter your details")
 
-        # making dictionaries
-        sex_options = {"Male": 1, "Female": 0}
-        chest_pain_type_options = {
-            "Typical Angina": 0, "Atypical Angina": 1, "Non-anginal Pain": 2, "Asymptomatic": 3
-        }
-        fasting_bs_options = {"True": 1, "False": 0}
-        resting_ecg_options = {
-            "Normal": 0, "Having ST-T Wave Abnormality": 1, "Showing Left Ventricular Hypertrophy": 2
-        }
-        exercise_angina_options = {"Yes": 1, "No": 0}
-        st_slope_option = {"Upsloping": 0, "Flat": 1, "Downsloping": 2}
-
         # Input fields for the heart failure prediction attributes
         name = st.text_input("Name", value="", max_chars=30)
         age = st.number_input("Age", min_value=1, max_value=120, value=None)
         sex = st.selectbox('Sex ( Male  or Female)', options=[
-                           ""] + list(sex_options.keys()))
+                           ""] + list({"Male": 1, "Female": 0}.keys()))
         chest_pain_type = st.selectbox('Chest Pain Type', options=[
-                                       ""] + list(chest_pain_type_options.keys()))
+                                       ""] + list({"Typical Angina": 0, "Atypical Angina": 1, "Non-anginal Pain": 2, "Asymptomatic": 3}.keys()))
         resting_bp = st.number_input(
             "Resting Blood Pressure (Min 68mm Hg to Max 250mm Hg)", min_value=68, max_value=250, value=None)
         cholesterol = st.number_input(
             "Cholesterol (Min 100 mg/dL to Max 600mg/dL)", min_value=50, max_value=600, value=None)
         fasting_bs = st.selectbox('Fasting Blood Sugar (1: True, 0: False)', options=[
-                                  ""] + list(fasting_bs_options.keys()))
+                                  ""] + list({"True": 1, "False": 0}.keys()))
         resting_ecg = st.selectbox('Resting ECG Results', options=[
-                                   ""] + list(resting_ecg_options.keys()))
+                                   ""] + list({"Normal": 0, "Having ST-T Wave Abnormality": 1, "Showing Left Ventricular Hypertrophy": 2}.keys()))
         max_hr = st.number_input(
             "Maximum Heart Rate Achieved (Min 60bpm to Max 220bpm)", min_value=60, max_value=220, value=None)
         exercise_angina = st.selectbox('Exercise Induced Angina', options=[
-                                       ""] + list(exercise_angina_options.keys()))
+                                       ""] + list({"Yes": 1, "No": 0}.keys()))
         oldpeak = st.number_input("Oldpeak (Min 0.0 to Max 6.2)", min_value=0.0,
                                   max_value=6.2, step=0.1, format="%.1f", value=None)
         st_slope = st.selectbox('Slope of the Peak Exercise ST Segment', options=[
-                                ""] + list(st_slope_option.keys()))
+                                ""] + list({"Upsloping": 0, "Flat": 1, "Downsloping": 2}.keys()))
 
         clicked = st.button("Predict")
 
@@ -146,16 +165,19 @@ def main_app():
                 st.error("Oldpeak must be between 0.0 and 6.2.")
             else:
                 try:
-                    # Use the pre-loaded model
                     model = st.session_state["model"]
 
                     if model is not None:
-                        sex_values = sex_options[sex]
-                        chest_pain_type_values = chest_pain_type_options[chest_pain_type]
-                        fasting_bs_values = fasting_bs_options[fasting_bs]
-                        resting_ecg_values = resting_ecg_options[resting_ecg]
-                        exercise_angina_values = exercise_angina_options[exercise_angina]
-                        st_slope_values = st_slope_option[st_slope]
+                        sex_values = {"Male": 1, "Female": 0}[sex]
+                        chest_pain_type_values = {
+                            "Typical Angina": 0, "Atypical Angina": 1, "Non-anginal Pain": 2, "Asymptomatic": 3}[chest_pain_type]
+                        fasting_bs_values = {"True": 1, "False": 0}[fasting_bs]
+                        resting_ecg_values = {"Normal": 0, "Having ST-T Wave Abnormality": 1,
+                                              "Showing Left Ventricular Hypertrophy": 2}[resting_ecg]
+                        exercise_angina_values = {
+                            "Yes": 1, "No": 0}[exercise_angina]
+                        st_slope_values = {"Upsloping": 0,
+                                           "Flat": 1, "Downsloping": 2}[st_slope]
                         features = np.array([[age, sex_values, chest_pain_type_values, resting_bp, cholesterol,
                                               fasting_bs_values, resting_ecg_values, max_hr, exercise_angina_values, oldpeak, st_slope_values]])
                         predicted = model.predict(features)
@@ -166,13 +188,15 @@ def main_app():
                             '0 (No possibility of heart attack), 1 (Future heart attack detected)')
 
                         # Conditional message display based on prediction
+                        prediction_message = ""
                         if predicted[0] == 0:
-                            st.success(
-                                "✅ Good news! No possibility of heart attack")
+                            prediction_message = "✅ Good news! No possibility of heart attack"
                         elif predicted[0] == 1:
-                            st.warning("⚠ Future heart attack detected")
+                            prediction_message = "⚠ Future heart attack detected"
                         else:
                             st.error("Unexpected prediction value")
+
+                        st.success(prediction_message)
 
                         # Display the user's input values
                         st.subheader("Your Input Values")
@@ -194,10 +218,18 @@ def main_app():
                         st.write(
                             f"**Slope of the Peak Exercise ST Segment:** {st_slope}")
 
+                        # Create PDF
+                        pdf = create_pdf(name, age, sex_values, chest_pain_type, resting_bp, cholesterol, fasting_bs_values,
+                                         resting_ecg, max_hr, exercise_angina_values, oldpeak, st_slope_values, prediction_message)
+
+                        # Download button for PDF
+                        st.download_button(
+                            "Download PDF Report", pdf, "heart_failure_prediction_report.pdf")
+
                 except Exception as e:
                     st.error(f"An error occurred during prediction: {e}")
 
-    # ========= ABOUT TAB =========
+    # About Tab
     if sidebar == "About":
         st.header("About")
         st.subheader("How soon after treatment will You feel better?")
@@ -207,7 +239,7 @@ def main_app():
         st.subheader("How common are heart attacks?")
         st.write("Heart attacks are quite common in India...")
 
-    # ========= TEAM TAB =========
+    # Team Tab
     if sidebar == "Team":
         st.title("About Team⚡")
         col1, col2, col3 = st.columns(3)
@@ -229,7 +261,7 @@ def main_app():
             st.markdown(
                 '''* **`Github`** ⭐ https://github.com/Developer-Alok * **`Portfolio`** 🌐 https://gobindagagan.vercel.app/''')
 
-    # ========= FEEDBACK TAB =========
+    # Feedback Tab
     if sidebar == "Feedback":
         col1, col2 = st.columns([2, 2])
         st.markdown("### Bug Report 🪲")
