@@ -21,6 +21,10 @@ if "client" not in st.session_state:
 st.session_state["db"] = st.session_state["client"].get_database("User_Login")
 st.session_state["users_collection"] = st.session_state["db"].get_collection(
     "users")
+st.session_state["feedback_collection"] = st.session_state["db"].get_collection(
+    "Feedback")
+st.session_state["rating_collection"] = st.session_state["db"].get_collection(
+    "Rating")
 
 # Load the model once
 if "model" not in st.session_state:
@@ -306,7 +310,7 @@ def main_app():
             st.markdown(
                 '''* **`Github`** ⭐ https://github.com/Developer-Alok * **`Portfolio`** 🌐 https://gobindagagan.vercel.app/''')
 
-    # Feedback Tab
+   # Feedback Tab
     if sidebar == "Feedback":
         col1, col2 = st.columns([2, 2])
 
@@ -327,14 +331,15 @@ def main_app():
                     st.image(uploaded_file)
 
             if st.button("Send Report ✈️"):
-                # Prepare data for MongoDB
+                # Prepare data for MongoDB Feedback collection
                 feedback_data = {
                     "bug_report": bug_report,
                     "screenshot": uploaded_file.name if uploaded_file else None,
                     "email": st.session_state.get("email"),
                     "full_name": st.session_state.get("full_name"),
                 }
-                st.session_state["users_collection"].insert_one(feedback_data)
+                st.session_state["feedback_collection"].insert_one(
+                    feedback_data)  # Save to Feedback collection
                 st.markdown(
                     "<span style='color:lightgreen'>Report Sent Successfully, We'll get back to you super soon ⚡</span>", unsafe_allow_html=True)
                 st.markdown(
@@ -357,8 +362,8 @@ def main_app():
                     "email": st.session_state.get("email"),
                     "full_name": st.session_state.get("full_name"),
                 }
-                st.session_state["users_collection"].insert_one(
-                    feedback_rating_data)
+                st.session_state["rating_collection"].insert_one(
+                    feedback_rating_data)  # Save to Rating collection
                 st.markdown(f"Thank you for your feedback! You rated us {
                             selected_star} star{'s' if selected_star > 1 else ''} 🌟")
 
