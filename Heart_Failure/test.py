@@ -309,21 +309,42 @@ def main_app():
     # Feedback Tab
     if sidebar == "Feedback":
         col1, col2 = st.columns([2, 2])
-        st.markdown("### Bug Report 🪲")
-        bug_report = st.text_area("Please describe the issue or report a bug:")
-        uploaded_file = st.file_uploader(
-            "Attach Screenshot (optional):", type=["png", "jpg"])
-        if uploaded_file is not None:
+
+        # Create a tab layout
+        tab1, tab2 = st.tabs(["Feedback", "Rating"])
+
+        with tab1:
+            st.markdown("### Bug Report 🪲")
+            bug_report = st.text_area(
+                "Please describe the issue or report a bug:")
+            uploaded_file = st.file_uploader(
+                "Attach Screenshot (optional):", type=["png", "jpg"])
+            if uploaded_file is not None:
+                st.markdown(
+                    "**<span style='color:lightgreen'>Screenshot Attached Successfully 👍🏻</span>**", unsafe_allow_html=True)
+                with st.expander("Preview Attached Screenshot"):
+                    st.image(uploaded_file)
+            send_button = st.button("Send Report ✈️")
+            if send_button:
+                st.markdown(
+                    "<span style='color:lightgreen'>Report Sent Successfully, We'll get back to you super soon ⚡</span>", unsafe_allow_html=True)
+                st.markdown(
+                    "## <span style='color:white'>Thank You 💖</span>", unsafe_allow_html=True)
+
+        with tab2:
             st.markdown(
-                "**<span style='color:lightgreen'>Screenshot Attached Successfully 👍🏻</span>**", unsafe_allow_html=True)
-            with st.expander("Preview Attached Screenshot"):
-                st.image(uploaded_file)
-        send_button = st.button("Send Report ✈️")
-        if send_button:
-            st.markdown(
-                "<span style='color:lightgreen'>Report Sent Successfully, We'll get back to you super soon ⚡</span>", unsafe_allow_html=True)
-            st.markdown(
-                "## <span style='color:white'>Thank You 💖</span>", unsafe_allow_html=True)
+                "### Please rate your overall experience in using our Web App")
+            st.markdown("Your Feedback is Valuable! 🌟")
+
+            # Create star buttons
+            stars = [1, 2, 3, 4, 5]
+            selected_star = st.radio(
+                "Select a star rating:", stars, format_func=lambda x: '⭐' * x, key="rating")
+
+            # Automatically display feedback message when a star is clicked
+            if selected_star:
+                st.markdown(f"Thank you for your feedback! You rated us {
+                            selected_star} star{'s' if selected_star > 1 else ''} 🌟")
 
 
 # Run the application
