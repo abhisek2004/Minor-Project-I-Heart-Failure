@@ -17,7 +17,8 @@ if "authenticated" not in st.session_state:
 # MongoDB connection (initialize once)
 if "client" not in st.session_state:
     st.session_state["client"] = pymongo.MongoClient(
-        "mongodb+srv://abhisekpanda2004guddul:Y3pU0wNKOW8r1ea7@cluster0.0khgj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+        "mongodb+srv://abhisekpanda2004guddul:Y3pU0wNKOW8r1ea7@cluster0.0khgj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+    )
 st.session_state["db"] = st.session_state["client"].get_database("User_Login")
 st.session_state["users_collection"] = st.session_state["db"].get_collection(
     "users")
@@ -62,7 +63,6 @@ def create_pdf(name, age, sex, chest_pain_type, resting_bp, cholesterol, fasting
     p = canvas.Canvas(buffer, pagesize=letter)
 
     # Set background image
-    # Update this to your image path
     background_image = ImageReader("img/pdf.jpg")
     p.drawImage(background_image, 0, 0, width=letter[0], height=letter[1])
 
@@ -281,7 +281,7 @@ def main_app():
     # About Tab
     if sidebar == "About":
         st.header("About")
-        st.subheader("How soon after treatment will You feel better?")
+        st.subheader("How soon after treatment will you feel better?")
         st.write("After you’ve had a heart attack, you’re at a higher risk...")
         st.subheader("How soon after treatment will I feel better?")
         st.write("In general, your heart attack symptoms should decrease...")
@@ -310,7 +310,7 @@ def main_app():
             st.markdown(
                 '''* **`Github`** ⭐ https://github.com/Developer-Alok * **`Portfolio`** 🌐 https://gobindagagan.vercel.app/''')
 
-   # Feedback Tab
+    # Feedback Tab
     if sidebar == "Feedback":
         col1, col2 = st.columns([2, 2])
 
