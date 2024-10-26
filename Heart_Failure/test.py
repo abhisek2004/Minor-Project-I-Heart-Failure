@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 import numpy as np
 import pandas as pd
@@ -9,6 +10,11 @@ from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 from reportlab.lib.utils import ImageReader  # Corrected import
 import datetime
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from email.mime.base import MIMEBase
+from email import encoders
 
 # Initialize session state for authentication
 if "authenticated" not in st.session_state:
@@ -311,18 +317,67 @@ def main_app():
                 '''* **`Github`** ⭐ https://github.com/Developer-Alok * **`Portfolio`** 🌐 https://gobindagagan.vercel.app/''')
 
     # Feedback Tab
+    # Email configuration (use environment variables for security)
+    EMAIL_ADDRESS = os.getenv("EMAIL_ADDRESS")
+    EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")
+
+    def send_email_with_attachment(uploaded_file, feedback_data):
+        # Create a multipart email
+        msg = MIMEMultipart()
+        msg['From'] = EMAIL_ADDRESS
+        msg['To'] = "nicdelhi2024@gmail.com"
+        msg['Subject'] = "Bug Report from Feedback Form"
+
+        # Body of the email
+        body = f"Bug Report: {feedback_data['bug_report']}\n\n"
+        body += f"Reported by: {feedback_data['full_name']
+                                } ({feedback_data['email']})"
+        msg.attach(MIMEText(body, 'plain'))
+
+        # Attach the file
+        part = MIMEBase('application', 'octet-stream')
+        part.set_payload(uploaded_file.getvalue())
+        encoders.encode_base64(part)
+        part.add_header('Content-Disposition',
+                        f'attachment; filename={uploaded_file.name}')
+        msg.attach(part)
+
+        # Send the email
+        try:
+            with smtplib.SMTP('smtp.gmail.com', 587) as server:
+                server.starttls()
+                server.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
+                server.send_message(msg)
+        except Exception as e:
+            st.error(f"Failed to send email: {str(e)}")
+
     if sidebar == "Feedback":
         col1, col2 = st.columns([2, 2])
 
-        # Create a tab layout
-        tab1, tab2 = st.tabs(["Feedback", "Rating"])
+        tab1, tab2, tab3 = st.tabs(["❓Help", "💬 Feedback", "⭐ Rating"])
 
         with tab1:
+            st.header("Welcome to the Help Page!")
+            st.write("""
+                This application is designed for predictive modeling for heart failure using machine learning techniques to identify high-risk patients and facilitate early intervention.
+
+                The model utilizes anonymized patient data, including demographics, medical histories, and clinical assessments. Among the various algorithms tested, the Random Forest method performed the best, achieving an AUC-ROC score of 0.89.
+
+                The application of this model can help medical professionals identify individuals at risk early, provide individualized treatment strategies, and lower the incidence of severe heart failure episodes.
+
+                Future efforts will focus on expanding the dataset and incorporating real-time data from multiple hospitals to enhance the model's accuracy and practicality in clinical settings.
+
+                Implemented through a Streamlit application, the model enables healthcare professionals to input patient data and receive real-time risk assessments. This allows for personalized treatment strategies and potentially reduces severe heart failure episodes.
+
+                **Note:** This webpage requests your name and email to send you details about your test results. Rest assured, your information is safe and will be kept confidential.
+            """)
+
+        with tab2:
             st.markdown("### Bug Report 🪲")
             bug_report = st.text_area(
                 "Please describe the issue or report a bug:")
             uploaded_file = st.file_uploader(
-                "Attach Screenshot (optional):", type=["png", "jpg"])
+                "Attach Screenshot (optional):", type=["png", "jpg", "pdf"])
 
             if uploaded_file is not None:
                 st.markdown(
@@ -340,12 +395,17 @@ def main_app():
                 }
                 st.session_state["feedback_collection"].insert_one(
                     feedback_data)  # Save to Feedback collection
+
+                # Send email
+                if uploaded_file is not None:
+                    send_email_with_attachment(uploaded_file, feedback_data)
+
                 st.markdown(
                     "<span style='color:lightgreen'>Report Sent Successfully, We'll get back to you super soon ⚡</span>", unsafe_allow_html=True)
                 st.markdown(
                     "## <span style='color:white'>Thank You 💖</span>", unsafe_allow_html=True)
 
-        with tab2:
+        with tab3:
             st.markdown(
                 "### Please rate your overall experience in using our Web App")
             st.markdown("Your Feedback is Valuable! 🌟")
