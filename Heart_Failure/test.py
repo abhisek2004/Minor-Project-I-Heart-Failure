@@ -309,12 +309,12 @@ def main_app():
                 '''* **`Github`** ⭐ https://github.com/abhisek2004 * **`Portfolio`** 🌐 https://abhisekpanda.vercel.app/''')
         with col2:
             st.image("img/2.png")
-            st.subheader("Debabrata Mishra (Member)")
+            st.subheader("Debabrata Mishra (Member 1)")
             st.subheader("Data analytics")
             st.markdown('''* **`Github`** ⭐ https://github.com/debaraja-394''')
         with col3:
             st.image("img/3.png")
-            st.subheader("Gobinda Gagan Dey (Member)")
+            st.subheader("Gobinda Gagan Dey (Member 2)")
             st.subheader("MERN Developer")
             st.markdown(
                 '''* **`Github`** ⭐ https://github.com/Developer-Alok * **`Portfolio`** 🌐 https://gobindagagan.vercel.app/''')
