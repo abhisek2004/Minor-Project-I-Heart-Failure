@@ -359,18 +359,43 @@ def main_app():
         with tab1:
             st.header("Welcome to the Help Page!")
             st.write("""
-                This application is designed for predictive modeling for heart failure using machine learning techniques to identify high-risk patients and facilitate early intervention.
+                Millions of individuals worldwide suffer from heart failure, a chronic illness that significantly increases morbidity, mortality, and healthcare expenses. Improving patient outcomes and lessening the strain on healthcare systems depend heavily on early identification and efficient management of heart failure.
 
-                The model utilizes anonymized patient data, including demographics, medical histories, and clinical assessments. Among the various algorithms tested, the Random Forest method performed the best, achieving an AUC-ROC score of 0.89.
+                Predictive modeling, which employs cutting-edge statistical and machine learning approaches, offers a potential method for identifying those at high risk for heart failure and facilitating prompt therapies. 
 
-                The application of this model can help medical professionals identify individuals at risk early, provide individualized treatment strategies, and lower the incidence of severe heart failure episodes.
+                This application is designed for predictive modeling for heart failure using machine learning techniques to identify high-risk patients and facilitate early intervention. The model utilizes anonymized patient data, including demographics, medical histories, and clinical assessments. Among the various algorithms tested, the Random Forest method performed the best, achieving an AUC-ROC score of 0.89.
 
-                Future efforts will focus on expanding the dataset and incorporating real-time data from multiple hospitals to enhance the model's accuracy and practicality in clinical settings.
+                The application of this model can help medical professionals identify individuals at risk early, provide individualized treatment strategies, and lower the incidence of severe heart failure episodes. Future efforts will focus on expanding the dataset and incorporating real-time data from multiple hospitals to enhance the model's accuracy and practicality in clinical settings.
 
                 Implemented through a Streamlit application, the model enables healthcare professionals to input patient data and receive real-time risk assessments. This allows for personalized treatment strategies and potentially reduces severe heart failure episodes.
 
-                **Note:** This webpage requests your name and email to send you details about your test results. Rest assured, your information is safe and will be kept confidential.
+                ### Objectives
+                - **Data Gathering and Preprocessing:** Compile and purify a large dataset that includes clinical features, medical histories, test results, and patient demographics.
+                - **Feature Selection:** Determine which features are most pertinent and have a substantial impact on predicting heart failure.
+                - **Model Development:** Utilize machine learning methods to train various predictive models and evaluate their performance.
+                - **Model Validation:** Assess the models' predictive power, accuracy, precision, and recall using appropriate metrics and validation procedures.
+                - **Clinical Integration:** Develop techniques for incorporating the best prediction models into clinical practice to improve early diagnosis and treatment of heart failure.
+
+                ### Expected Outcomes
+                - **Accurate Predictive Models:** Creation of effective models that can estimate the likelihood of heart failure to facilitate early intervention.
+                - **Improved Clinical Decision-Making:** Tools that assist medical practitioners in managing patients, resulting in better outcomes.
+                - **Personalized Care:** Treatment regimens tailored to each patient's risk profile, lowering the prevalence of heart failure and its consequences.
+                - **Healthcare Efficiency:** Early identification and treatment of heart failure lead to better resource allocation and reduced healthcare costs.
+
+                ### Conclusion
+                The development of predictive modeling for heart failure is a significant step forward in enhancing patient outcomes and optimizing healthcare resources. By utilizing patient data and advanced machine learning techniques, this project aims to provide tools that enable early diagnosis and individualized therapy, ultimately improving the quality of life for those at risk of heart failure.
             """)
+
+            # Highlighted Note Box
+            st.markdown("""
+            <div style="background-color: #f0f8ff; padding: 10px; border-radius: 5px; border: 2px solid #007acc;">
+                <strong style="color: #007acc; font-size: 1.2em;">💡 Important Note! 📧</strong>
+                <br>
+                <strong style="color: #ff4500;">This webpage requests your name and email to send you details about your test results.</strong> 
+                <br>
+                <strong style="color: #ff4500;">Rest assured, your information is safe and will be kept confidential.</strong> 🔒✨
+            </div>
+            """, unsafe_allow_html=True)
 
         with tab2:
             st.markdown("### Bug Report 🪲")
