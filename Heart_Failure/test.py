@@ -352,8 +352,11 @@ def main_app():
 
             # Create star buttons
             stars = [1, 2, 3, 4, 5]
+
+            # Initialize selected_star to None
             selected_star = st.radio(
-                "Select a star rating:", stars, format_func=lambda x: '⭐' * x, key="rating")
+                "Select a star rating:", stars, format_func=lambda x: '⭐' * x, key="rating", index=None
+            )
 
             # Automatically display feedback message and send data when a star is clicked
             if selected_star:
