@@ -1,3 +1,4 @@
+import time
 import os
 import streamlit as st
 import numpy as np
@@ -474,3 +475,70 @@ if authenticate_user():
     main_app()
 else:
     st.info("Please log in to access the application.")
+
+
+
+# # List of image URLs or paths
+# image_paths = [
+#     "img/heart_failure_1.jpg",
+#     "img/heart_failure_2.jpg",
+#     "img/heart_failure_3.jpg",
+#     "img/heart_failure_4.jpg",
+#     "img/heart_failure_5.jpg",
+#     "img/heart_failure_6.jpg",
+#     "img/heart_failure_7.jpg",
+#     "img/heart_failure_8.jpg",
+#     "img/heart_failure_9.jpg",
+#     "img/heart_failure_10.jpg",
+# ]
+
+# # Set up a placeholder for the background
+# st.markdown("""
+#     <style>
+#     .bg {
+#         background-image: url('');
+#         background-size: cover;
+#         position: fixed;
+#         top: 0;
+#         left: 0;
+#         width: 100%;
+#         height: 100%;
+#         z-index: -1;
+#         opacity: 0.5;
+#         transition: background-image 1s ease-in-out;
+#     }
+#     </style>
+#     <div class="bg"></div>
+# """, unsafe_allow_html=True)
+
+# # Main application logic
+
+
+# def main_app():
+#     st.title("Predictive Modeling for Heart Failure")
+
+#     # Your existing app code...
+
+# # Change background images every 10 seconds
+
+
+# def change_background_images():
+#     while True:
+#         for image_path in image_paths:
+#             st.markdown(f"""
+#                 <script>
+#                 document.querySelector(
+#                     '.bg').style.backgroundImage = "url('{image_path}')";
+#                 </script>
+#             """, unsafe_allow_html=True)
+#             time.sleep(10)  # Change image every 10 seconds
+
+
+# # Run the application
+# if authenticate_user():
+#     # Start the background image change in a separate thread
+#     import threading
+#     threading.Thread(target=change_background_images, daemon=True).start()
+#     main_app()
+# else:
+#     st.info("Please log in to access the application.")
