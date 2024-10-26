@@ -388,10 +388,20 @@ def main_app():
 
             # Highlighted Note Box
             st.markdown("""
+            <style>
+                @keyframes blink {
+                    0% { opacity: 1; }
+                    50% { opacity: 0; }
+                    100% { opacity: 1; }
+                }
+                .blink {
+                    animation: blink 1s infinite;
+                }
+            </style>
             <div style="background-color: #f0f8ff; padding: 10px; border-radius: 5px; border: 2px solid #007acc;">
-                <strong style="color: #007acc; font-size: 1.2em;">💡 Important Note! 📧</strong>
+                <strong class="blink" style="color: #007acc; font-size: 1.2em;">💡 Important Note! 📧</strong>
                 <br>
-                <strong style="color: #ff4500;">This webpage requests your name and email to send you details about your test results.</strong> 
+                <strong style="color: #000000;">This webpage requests your name and email to send you details about your test results.</strong> 
                 <br>
                 <strong style="color: #ff4500;">Rest assured, your information is safe and will be kept confidential.</strong> 🔒✨
             </div>
