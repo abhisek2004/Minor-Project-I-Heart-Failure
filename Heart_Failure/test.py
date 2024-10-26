@@ -296,22 +296,25 @@ def main_app():
 
     # Team Tab
     if sidebar == "Team":
-        st.title("About Team⚡")
+        st.title("Discover Our Team⚡")
+        st.write("""
+    🌟 **As a team of passionate individuals**, we embarked on a journey to create a user-friendly and efficient application to predict diseases, such as **Predictive Modeling for Heart Failure**. 💓💻
+        """)
         col1, col2, col3 = st.columns(3)
         with col1:
             st.image("img/1.png")
-            st.subheader("ABHISEK PANDA")
+            st.subheader("ABHISEK PANDA (Lead)")
             st.subheader("Front End Developer")
             st.markdown(
                 '''* **`Github`** ⭐ https://github.com/abhisek2004 * **`Portfolio`** 🌐 https://abhisekpanda.vercel.app/''')
         with col2:
             st.image("img/2.png")
-            st.subheader("Debabrata Mishra")
+            st.subheader("Debabrata Mishra (Member)")
             st.subheader("Data analytics")
             st.markdown('''* **`Github`** ⭐ https://github.com/debaraja-394''')
         with col3:
             st.image("img/3.png")
-            st.subheader("Gobinda Gagan Dey")
+            st.subheader("Gobinda Gagan Dey (Member)")
             st.subheader("MERN Developer")
             st.markdown(
                 '''* **`Github`** ⭐ https://github.com/Developer-Alok * **`Portfolio`** 🌐 https://gobindagagan.vercel.app/''')
