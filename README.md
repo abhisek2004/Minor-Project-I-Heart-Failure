@@ -94,8 +94,6 @@ The **Predictive Modeling for Heart Failure** project aims to leverage machine l
 
 The project is currently in the development phase, with core features implemented and undergoing testing. 🛠️
 
-## 🚀 Future Needs
-
 
 
 ---
