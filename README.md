@@ -147,9 +147,7 @@ Future enhancements could also include:
 
 ---
 
-Here’s a structured section for your project, including the conclusion, description, contact information, and a placeholder for a website preview:
 
----
 
 ## ✅ Conclusion
 
