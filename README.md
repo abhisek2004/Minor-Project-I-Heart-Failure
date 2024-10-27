@@ -5,11 +5,7 @@
 ## Project Summary
 
 
-### Benefits
 
-- **Early Identification:** The predictive model aids in early identification of individuals at risk for heart failure, which is crucial for timely intervention.
-- **Personalized Care:** The model supports individualized treatment plans, potentially reducing the frequency of severe heart failure episodes.
-- **Clinical Applicability:** Future enhancements will focus on expanding the dataset and integrating real-time data from multiple hospitals to further improve the model's accuracy and practical application in clinical settings.
 
 ### Future Work
 
