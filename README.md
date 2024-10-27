@@ -215,6 +215,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 We would like to thank all the researchers and institutions that contributed to the availability of anonymized patient datasets, as well as the open-source community for their invaluable libraries and tools. 
 
 ---
+📊 Project Presentation
+Check out our PowerPoint presentation for a detailed overview of the project! 📑
+
 
 ![Predictive Model for Heart failure-1](https://github.com/user-attachments/assets/47e158bf-09bc-4696-bc62-d38a30c8ebe2)
 ![Predictive Model for Heart failure-2](https://github.com/user-attachments/assets/e41ecbc0-e2b9-4d3c-a24f-a2b46d043e21)
@@ -232,39 +235,7 @@ We would like to thank all the researchers and institutions that contributed to 
 ![Predictive Model for Heart failure-14](https://github.com/user-attachments/assets/f952d3a9-93dc-4e2f-9e87-e60a37fb98f9)
 ![Predictive Model for Heart failure-15](https://github.com/user-attachments/assets/de4d679e-700c-4322-a6e2-cae66e949f4f)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+---
 
 ## <h2 align="center"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Red%20Heart.png" width="35" height="35">Our Contributors</h2>
 <h3>Thank you for contributing to our repository</h3>
