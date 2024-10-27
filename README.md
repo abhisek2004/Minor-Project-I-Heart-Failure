@@ -192,7 +192,6 @@ This project serves as a platform for utilizing machine learning in healthcare, 
 
 ### 📸 Website Preview
 
-Feel free to replace the placeholder link in the website preview with the actual link to your image! Let me know if you need any further adjustments!
 ---
 ## <img src="https://github.com/Meetjain1/wanderlust/assets/133582566/90f3930e-5a12-4a4e-8ac9-0dc7d5396adb" width="35" height="35"> Contribution
 
