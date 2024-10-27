@@ -84,6 +84,10 @@ Kindly go through [CONTRIBUTING.md](CONTRIBUTING.md) to understand everything fr
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
+## 📜 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 ## Acknowledgements
 
 We would like to thank all the researchers and institutions that contributed to the availability of anonymized patient datasets, as well as the open-source community for their invaluable libraries and tools. 
