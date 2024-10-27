@@ -215,7 +215,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 We would like to thank all the researchers and institutions that contributed to the availability of anonymized patient datasets, as well as the open-source community for their invaluable libraries and tools. 
 
 ---
-📊 Project Presentation
+**📊 Project Presentation**
+
 Check out our PowerPoint presentation for a detailed overview of the project! 📑
 
 
