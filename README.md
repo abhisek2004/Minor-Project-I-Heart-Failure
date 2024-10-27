@@ -4,13 +4,6 @@
 
 ## Project Summary
 
-This project develops a predictive model for heart failure using machine learning techniques to identify high-risk patients and facilitate early intervention. By analyzing anonymized patient data, including demographics, medical histories, and clinical assessments, the model aims to empower healthcare professionals to make informed decisions.
-
-### Key Features
-
-- **Data Utilization:** The model leverages a rich dataset comprising various patient attributes, enabling accurate risk assessment.
-- **Algorithm Performance:** Multiple algorithms were evaluated, with the Random Forest method achieving the highest performance with an AUC-ROC score of **0.89** and an accuracy of **0.93**. A Neural Network model followed closely with an accuracy of **0.86**.
-- **Real-Time Assessments:** Implemented through a user-friendly Streamlit application, the model allows healthcare professionals to input patient data and receive real-time risk assessments, facilitating personalized treatment strategies.
 
 ### Benefits
 
