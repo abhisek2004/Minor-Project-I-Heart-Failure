@@ -5,6 +5,7 @@ import numpy as np
 import pandas as pd
 import joblib
 import pymongo
+import threading
 from io import BytesIO
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import letter
@@ -40,17 +41,30 @@ if "model" not in st.session_state:
 
     # List of image URLs or paths for the background
     image_paths = [
-        "img/heart_failure_1.jpg",
-        "img/heart_failure_2.jpg",
-        "img/heart_failure_3.jpg",
-        "img/heart_failure_4.jpg",
-        "img/heart_failure_5.jpg",
-        "img/heart_failure_6.jpg",
-        "img/heart_failure_7.jpg",
-        "img/heart_failure_8.jpg",
-        "img/heart_failure_9.jpg",
-        "img/heart_failure_10.jpg",
+        "img\failure_1.jpg",
+        "img\failure_2.jpg",
+        "img\failure_3.jpg",
+        "img\failure_4.jpg",
+        "img\failure_5.jpg",
+        "img\failure_6.jpg",
+        "img\failure_7.jpg",
+        "img\failure_8.jpg",
+        "img\failure_9.jpg",
+        "img\pdf.jpg",
     ]
+# Function to change background images
+
+
+def change_background_images():
+    while True:
+        for image_path in image_paths:
+            st.markdown(f"""
+                <script>
+                document.querySelector(
+                    '.bg').style.backgroundImage = "url('{image_path}')";
+                </script>
+            """, unsafe_allow_html=True)
+            time.sleep(10)  # Change image every 10 seconds
 
 # Function to handle authentication
 
@@ -144,6 +158,24 @@ def create_pdf(name, age, sex, chest_pain_type, resting_bp, cholesterol, fasting
 
 
 def main_app():
+    # Background placeholder
+    st.markdown("""
+        <style>
+        .bg {
+            background-size: cover;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.5;
+            transition: background-image 1s ease-in-out;
+        }
+        </style>
+        <div class="bg"></div>
+    """, unsafe_allow_html=True)
+
     st.title("Predictive Modeling for Heart Failure")
 
     st.sidebar.header("Sidebar")
@@ -486,6 +518,8 @@ def main_app():
 
 # Run the application
 if authenticate_user():
+    # Start the background image change in a separate thread
+    threading.Thread(target=change_background_images, daemon=True).start()
     main_app()
 else:
     st.info("Please log in to access the application.")
