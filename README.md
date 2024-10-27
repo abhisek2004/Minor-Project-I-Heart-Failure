@@ -59,8 +59,6 @@ We would like to thank all the researchers and institutions that contributed to 
 
 ---
 
-# Predictive Modeling for Heart Failure
-
 ## 🚀 Getting Started
 
 Follow these steps to get a local copy of the project:
