@@ -122,15 +122,6 @@ The **Predictive Modeling for Heart Failure** project aims to leverage machine l
 
 ---
 
-
----
-
-## 📜 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
 ## 📊 Current Status
 
 The project is currently in the development phase, with core features implemented and undergoing testing. 🛠️
