@@ -67,7 +67,6 @@ To enhance the model's performance and its utility in clinical environments, we 
 - Input anonymized patient data into the Streamlit application.
 - Receive real-time risk assessments and tailored recommendations for heart failure management.
 
-## Contributing
 
 ## <img src="https://github.com/Meetjain1/wanderlust/assets/133582566/90f3930e-5a12-4a4e-8ac9-0dc7d5396adb" width="35" height="35"> Contribution
 
