@@ -2,8 +2,6 @@
 
 # Predictive Modeling for Heart Failure
 
-This project develops a predictive model for heart failure using machine learning techniques, designed to identify high-risk patients and facilitate early intervention. By analyzing anonymized patient data—such as demographics, medical histories, and clinical assessments—the model aims to empower healthcare professionals with the insights they need to make informed decisions.
-
 ## Project Summary
 
 Cardiovascular diseases (CVDs) are the leading cause of death worldwide, claiming an estimated 17.9 million lives each year, which accounts for 31% of all deaths globally. Four out of five CVD deaths are attributed to heart attacks and strokes, with one-third of these fatalities occurring prematurely in individuals under 70 years of age. Heart failure is a common outcome of CVDs, making early detection and management crucial. This project develops a predictive model for heart failure using machine learning techniques to identify high-risk patients and facilitate timely intervention.
