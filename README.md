@@ -38,7 +38,29 @@ To enhance the model's performance and its utility in clinical environments, we 
 
 ### Installation
 
+**Follow these steps to get a local copy of the project:**
 
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/yourusername/heart-failure-predictive-model.git
+   ```
+
+2. **Navigate to the project directory:**
+   ```bash
+   cd heart-failure-predictive-model
+   ```
+
+3. **Install the required packages:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Run the Streamlit application:**
+   ```bash
+   streamlit run app.py
+   ```
+
+5. **Open your browser** and go to `http://localhost:8501` to view the application.
 
 ### Usage
 
