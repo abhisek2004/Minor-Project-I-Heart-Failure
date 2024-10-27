@@ -96,22 +96,30 @@ The project is currently in the development phase, with core features implemente
 
 ---
 
+Sure! Here’s the updated section with even more emojis:
+
+---
+
 ## 🚀 Future Work
 
 To enhance the model's performance and its utility in clinical environments, we plan to:
 
-- 📊 **Expand the dataset** by including a diverse range of anonymized patient records from different healthcare institutions.
-- 🌐 **Integrate real-time patient data** to allow dynamic risk assessments and improve the model's predictive capabilities.
-- 🔄 **Continuously refine algorithms** and evaluate additional machine learning techniques to optimize accuracy and reliability.
+- 📊 **Expand the dataset** by including a diverse range of anonymized patient records from different healthcare institutions. 📈
+- 🌐 **Integrate real-time patient data** to allow dynamic risk assessments and improve the model's predictive capabilities. ⏱️
+- 🔄 **Continuously refine algorithms** and evaluate additional machine learning techniques to optimize accuracy and reliability. 🔍
 
 ### Future Needs
 
 Future enhancements could also include:
 
-- 🎨 **Improved user interface** for a better user experience.
-- 🔒 **Enhanced security features** for data protection.
-- 📈 **Advanced machine learning models** to further enhance predictive accuracy.
+- 🎨 **Improved user interface** for a better user experience. 🖥️
+- 🔒 **Enhanced security features** for data protection. 🔑
+- 📈 **Advanced machine learning models** to further enhance predictive accuracy. 🤖
+- 🌍 **Wider accessibility** to ensure healthcare professionals can easily utilize the model. 📲
 
+---
+
+Let me know if you need anything else!
 
 ---
 
