@@ -115,9 +115,7 @@ Future enhancements could also include:
 - 🔒 **Enhanced security features** for data protection.
 - 📈 **Advanced machine learning models** to further enhance predictive accuracy.
 
----
 
-Feel free to let me know if you'd like any more adjustments!
 ---
 
 ## <img src="https://github.com/Meetjain1/wanderlust/assets/133582566/90f3930e-5a12-4a4e-8ac9-0dc7d5396adb" width="35" height="35"> Contribution
