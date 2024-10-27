@@ -12,8 +12,6 @@ This project develops a predictive model for heart failure using machine learnin
 - **Algorithm Performance:** We evaluated several algorithms, finding that the Random Forest method performed best, achieving an AUC-ROC score of **0.89** and an accuracy of **0.93**. The Neural Network model followed closely, with an accuracy of **0.86**.
 - **Real-Time Assessments:** The model is implemented through an intuitive Streamlit application, enabling healthcare professionals to input patient data and receive real-time risk assessments. This functionality facilitates personalized treatment strategies tailored to individual patient needs.
 
-### Benefits
-
 
 
 
