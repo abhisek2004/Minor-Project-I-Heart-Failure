@@ -26,7 +26,7 @@ To enhance the model's performance and its utility in clinical environments, we 
 - Integrate real-time patient data to allow dynamic risk assessments and improve the model's predictive capabilities.
 - Continuously refine algorithms and evaluate additional machine learning techniques to optimize accuracy and reliability.
 
-## Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
 
@@ -59,7 +59,7 @@ We would like to thank all the researchers and institutions that contributed to 
 
 ---
 
-## 🚀 Getting Started
+
 
 Follow these steps to get a local copy of the project:
 
