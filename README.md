@@ -59,32 +59,6 @@ We would like to thank all the researchers and institutions that contributed to 
 
 ---
 
-
-
-Follow these steps to get a local copy of the project:
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/yourusername/heart-failure-predictive-model.git
-   ```
-
-2. **Navigate to the project directory:**
-   ```bash
-   cd heart-failure-predictive-model
-   ```
-
-3. **Install the required packages:**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. **Run the Streamlit application:**
-   ```bash
-   streamlit run app.py
-   ```
-
-5. **Open your browser** and go to `http://localhost:8501` to view the application.
-
 **Note:** This project uses Python for backend processing and Streamlit for the front end, along with libraries like Pandas and Scikit-learn for machine learning.
 
 <div align="center">
