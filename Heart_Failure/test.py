@@ -38,6 +38,20 @@ st.session_state["rating_collection"] = st.session_state["db"].get_collection(
 if "model" not in st.session_state:
     st.session_state["model"] = joblib.load(open('model.pkl', 'rb'))
 
+    # List of image URLs or paths for the background
+    image_paths = [
+        "img/heart_failure_1.jpg",
+        "img/heart_failure_2.jpg",
+        "img/heart_failure_3.jpg",
+        "img/heart_failure_4.jpg",
+        "img/heart_failure_5.jpg",
+        "img/heart_failure_6.jpg",
+        "img/heart_failure_7.jpg",
+        "img/heart_failure_8.jpg",
+        "img/heart_failure_9.jpg",
+        "img/heart_failure_10.jpg",
+    ]
+
 # Function to handle authentication
 
 
@@ -63,6 +77,7 @@ def authenticate_user():
     return False
 
 # Function to create the PDF
+
 
 def create_pdf(name, age, sex, chest_pain_type, resting_bp, cholesterol, fasting_bs, resting_ecg, max_hr, exercise_angina, oldpeak, st_slope, prediction_result):
     buffer = BytesIO()
