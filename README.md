@@ -2,8 +2,6 @@
 
 # Predictive Modeling for Heart Failure
 
-## Project Summary
-
 This project develops a predictive model for heart failure using machine learning techniques, designed to identify high-risk patients and facilitate early intervention. By analyzing anonymized patient data—such as demographics, medical histories, and clinical assessments—the model aims to empower healthcare professionals with the insights they need to make informed decisions.
 
 ## Project Summary
