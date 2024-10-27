@@ -78,7 +78,7 @@ We would like to thank all the researchers and institutions that contributed to 
 
 ---
 
-By using this predictive model, we aim to improve patient outcomes in heart failure management and enhance healthcare efficiency. Stay tuned for updates as we continue to advance this project! 🚀
+
 
 ![Predictive Model for Heart failure-1](https://github.com/user-attachments/assets/47e158bf-09bc-4696-bc62-d38a30c8ebe2)
 ![Predictive Model for Heart failure-2](https://github.com/user-attachments/assets/e41ecbc0-e2b9-4d3c-a24f-a2b46d043e21)
