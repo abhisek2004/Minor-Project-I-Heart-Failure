@@ -80,8 +80,6 @@ Your involvement helps to improve the project and make it better for everyone. T
 
 Kindly go through [CONTRIBUTING.md](CONTRIBUTING.md) to understand everything from setup to contributing guidelines.
 
-## License
-
 
 ## 📜 License
 
