@@ -20,7 +20,6 @@ This project develops a predictive model for heart failure using machine learnin
 
 ### Future Work
 
-To enhance the model's performance and its utility in clinical environments, we plan to:
 
 
 ## 🚀 Getting Started
