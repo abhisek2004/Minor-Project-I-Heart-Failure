@@ -147,8 +147,6 @@ Future enhancements could also include:
 
 ---
 
-
-
 ## ✅ Conclusion
 
 The project aims to develop a predictive model for heart failure using machine learning techniques, providing healthcare professionals with essential tools to identify high-risk patients and facilitate early intervention. Ongoing development will focus on enhancing model accuracy, expanding the dataset, and integrating real-time patient data to improve clinical applicability. 🚀
@@ -194,8 +192,6 @@ This project serves as a platform for utilizing machine learning in healthcare, 
 
 ### 📸 Website Preview
 
-![Website Preview](link-to-your-image.jpg)  
-*Visual representation of the Streamlit application used for real-time risk assessments.*
 
 ---
 
