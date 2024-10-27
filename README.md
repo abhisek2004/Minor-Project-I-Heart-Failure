@@ -18,8 +18,6 @@ This project develops a predictive model for heart failure using machine learnin
 - **Personalized Care:** By supporting individualized treatment plans, the model has the potential to reduce the frequency of severe heart failure episodes, leading to better patient outcomes.
 - **Clinical Applicability:** Future enhancements will focus on expanding the dataset and integrating real-time data from multiple hospitals. This will further improve the model’s accuracy and its practical application in clinical settings.
 
-We're excited about the potential of this project to improve heart failure management and enhance patient care. Your contributions and feedback are always welcome!
-
 ### Future Work
 
 To enhance the model's performance and its utility in clinical environments, we plan to:
