@@ -22,9 +22,6 @@ This project develops a predictive model for heart failure using machine learnin
 
 To enhance the model's performance and its utility in clinical environments, we plan to:
 
-- Expand the dataset by including a diverse range of anonymized patient records from different healthcare institutions.
-- Integrate real-time patient data to allow dynamic risk assessments and improve the model's predictive capabilities.
-- Continuously refine algorithms and evaluate additional machine learning techniques to optimize accuracy and reliability.
 
 ## 🚀 Getting Started
 
