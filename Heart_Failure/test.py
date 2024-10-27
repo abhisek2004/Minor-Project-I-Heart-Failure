@@ -477,7 +477,6 @@ else:
     st.info("Please log in to access the application.")
 
 
-
 # # List of image URLs or paths
 # image_paths = [
 #     "img/heart_failure_1.jpg",
