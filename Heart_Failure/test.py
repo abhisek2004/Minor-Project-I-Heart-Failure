@@ -70,25 +70,29 @@ def change_background_images():
 
 
 def authenticate_user():
-    if st.session_state["authenticated"]:
+    if st.session_state.get("authenticated", False):
         return True
 
     st.sidebar.image('py.jpg')  # Your image path
     st.markdown("<h1 style='text-align: center;'> LOGIN PAGE </h1><br>",
                 unsafe_allow_html=True)
-    st.header("Enter Email & Full Name: ")
+    st.header("Enter Email & Full Name:")
 
     email = st.text_input(label="Email:", value="", key="email")
     full_name = st.text_input(label="Full Name:", value="", key="full_name")
 
-    if st.button("Login"):
+    # Check if both fields are filled
+    if email and full_name:
         # Save user data to MongoDB
         st.session_state["users_collection"].insert_one(
             {"email": email, "full_name": full_name})
         st.session_state["authenticated"] = True
         st.success("Login successful!")
+    else:
+        st.warning("⚠️ Please enter both Name and Email to proceed!")
 
     return False
+
 
 # Function to create the PDF
 
@@ -521,5 +525,5 @@ if authenticate_user():
     # Start the background image change in a separate thread
     threading.Thread(target=change_background_images, daemon=True).start()
     main_app()
-else:
-    st.info("Please log in to access the application.")
+# else:
+#     st.info("Please log in to access the application.")
