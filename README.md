@@ -117,9 +117,6 @@ Future enhancements could also include:
 - 📈 **Advanced machine learning models** to further enhance predictive accuracy. 🤖
 - 🌍 **Wider accessibility** to ensure healthcare professionals can easily utilize the model. 📲
 
----
-
-Let me know if you need anything else!
 
 ---
 
