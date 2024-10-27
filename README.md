@@ -71,6 +71,18 @@ To enhance the model's performance and its utility in clinical environments, we 
 
 Contributions are welcome! Please submit a pull request or open an issue for any improvements, suggestions, or bug reports.
 
+## <img src="https://github.com/Meetjain1/wanderlust/assets/133582566/90f3930e-5a12-4a4e-8ac9-0dc7d5396adb" width="35" height="35"> Contribution
+
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+- If you have suggestions for the project, such as reporting a bug, improving the model, or enhancing the README.md file, feel free to **open an issue** or create a pull request with the necessary changes.
+- Please ensure that your code is well-commented and follows Python best practices.
+- Create individual pull requests for each suggestion to keep changes focused and manageable.
+
+Your involvement helps to improve the project and make it better for everyone. Thank you for your contributions!
+
+Kindly go through [CONTRIBUTING.md](CONTRIBUTING.md) to understand everything from setup to contributing guidelines.
+
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
