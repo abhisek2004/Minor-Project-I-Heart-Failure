@@ -64,7 +64,6 @@ def authenticate_user():
 
 # Function to create the PDF
 
-
 def create_pdf(name, age, sex, chest_pain_type, resting_bp, cholesterol, fasting_bs, resting_ecg, max_hr, exercise_angina, oldpeak, st_slope, prediction_result):
     buffer = BytesIO()
     p = canvas.Canvas(buffer, pagesize=letter)
