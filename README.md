@@ -14,9 +14,7 @@ This project develops a predictive model for heart failure using machine learnin
 
 ### Benefits
 
-- **Early Identification:** The predictive model plays a crucial role in the early identification of individuals at risk for heart failure, which is essential for timely intervention and management.
-- **Personalized Care:** By supporting individualized treatment plans, the model has the potential to reduce the frequency of severe heart failure episodes, leading to better patient outcomes.
-- **Clinical Applicability:** Future enhancements will focus on expanding the dataset and integrating real-time data from multiple hospitals. This will further improve the model’s accuracy and its practical application in clinical settings.
+
 
 
 ## Project Summary
