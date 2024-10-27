@@ -96,7 +96,6 @@ The project is currently in the development phase, with core features implemente
 
 ## 🚀 Future Needs
 
-Future enhancements could include:
 
 
 ---
