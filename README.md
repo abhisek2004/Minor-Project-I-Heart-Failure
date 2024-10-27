@@ -136,10 +136,6 @@ We would like to thank all the researchers and institutions that contributed to 
 
 ---
 
-
-
-We look forward to your feedback and contributions as we work towards improving heart failure management through predictive modeling!
-
 ![Predictive Model for Heart failure-1](https://github.com/user-attachments/assets/47e158bf-09bc-4696-bc62-d38a30c8ebe2)
 ![Predictive Model for Heart failure-2](https://github.com/user-attachments/assets/e41ecbc0-e2b9-4d3c-a24f-a2b46d043e21)
 ![Predictive Model for Heart failure-3](https://github.com/user-attachments/assets/ad4a92bf-ac55-491b-ad18-48a2d5914582)
