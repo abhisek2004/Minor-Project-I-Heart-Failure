@@ -94,8 +94,30 @@ The **Predictive Modeling for Heart Failure** project aims to leverage machine l
 
 The project is currently in the development phase, with core features implemented and undergoing testing. 🛠️
 
+---
+Sure! Here’s the updated section that combines your future work and future needs with emojis:
 
+---
 
+## 🚀 Future Work
+
+To enhance the model's performance and its utility in clinical environments, we plan to:
+
+- 📊 **Expand the dataset** by including a diverse range of anonymized patient records from different healthcare institutions.
+- 🌐 **Integrate real-time patient data** to allow dynamic risk assessments and improve the model's predictive capabilities.
+- 🔄 **Continuously refine algorithms** and evaluate additional machine learning techniques to optimize accuracy and reliability.
+
+### Future Needs
+
+Future enhancements could also include:
+
+- 🎨 **Improved user interface** for a better user experience.
+- 🔒 **Enhanced security features** for data protection.
+- 📈 **Advanced machine learning models** to further enhance predictive accuracy.
+
+---
+
+Feel free to let me know if you'd like any more adjustments!
 ---
 
 ## <img src="https://github.com/Meetjain1/wanderlust/assets/133582566/90f3930e-5a12-4a4e-8ac9-0dc7d5396adb" width="35" height="35"> Contribution
