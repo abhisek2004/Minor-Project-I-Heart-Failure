@@ -69,9 +69,6 @@ In total, the combined dataset contains **1,190 observations**, with **272 dupli
 
 ---
 
-Feel free to let me know if you need any more adjustments or additional information!
-
-
 ## 🚀 Getting Started
 
 ### Prerequisites
