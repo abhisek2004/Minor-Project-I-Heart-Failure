@@ -76,7 +76,6 @@ This project develops a predictive model for heart failure using machine learnin
 ---
 
 ## ✨ Features
-
 - 🩺 **Risk Assessment:** Provides real-time risk assessments for heart failure based on patient data.
 - 🔍 **Model Evaluation:** Allows users to explore model performance metrics and validation results.
 - 🎛️ **User-Friendly Interface:** Simple and intuitive interface for healthcare professionals.
@@ -98,10 +97,7 @@ The project is currently in the development phase, with core features implemente
 ## 🚀 Future Needs
 
 Future enhancements could include:
-- 🎨 **Improved user interface** for better user experience.
-- 🔒 **Enhanced security features** for data protection.
-- 🌐 **Integration of real-time data** from multiple hospitals for dynamic assessments.
-- 📈 **Advanced machine learning models** to further enhance predictive accuracy.
+
 
 ---
 
