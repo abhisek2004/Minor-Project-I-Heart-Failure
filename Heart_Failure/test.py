@@ -187,7 +187,7 @@ def main_app():
     sidebar = st.sidebar.selectbox(
         "The app features",
         ("Main Page", "Dataset", "Analysis",
-         "Our Model Prediction", "About", "Team", "Feedback")
+         "Our Model Prediction", "About", "Feedback", "Team")
     )
 
     # Main Page Tab
@@ -345,30 +345,47 @@ def main_app():
         st.subheader("How common are heart attacks?")
         st.write("Heart attacks are quite common in India...")
 
-    # Team Tab
+        # Team Tab
     if sidebar == "Team":
         st.title("Discover Our Team⚡")
-        st.write("""
-    🌟 **As a team of passionate individuals**, we embarked on a journey to create a user-friendly and efficient application to predict diseases, such as **Predictive Modeling for Heart Failure**. 💓💻
+        st.write(""" 
+        🌟 **As a team of passionate individuals**, we embarked on a journey to create a user-friendly and efficient application to predict diseases, such as **Predictive Modeling for Heart Failure**. 💓💻
         """)
+
         col1, col2, col3 = st.columns(3)
+
         with col1:
-            st.image("img/1.png")
+            st.image("img/abhi.png")
             st.subheader("ABHISEK PANDA (Lead)")
             st.subheader("Front End Developer")
             st.markdown(
                 '''* **`Github`** ⭐ https://github.com/abhisek2004 * **`Portfolio`** 🌐 https://abhisekpanda.vercel.app/''')
+
         with col2:
-            st.image("img/2.png")
+            st.image("img/deba.png")
             st.subheader("Debabrata Mishra (Member 1)")
             st.subheader("Data analytics")
             st.markdown('''* **`Github`** ⭐ https://github.com/debaraja-394''')
+
         with col3:
-            st.image("img/3.png")
+            st.image("img/gobinda.png")
             st.subheader("Gobinda Gagan Dey (Member 2)")
             st.subheader("MERN Developer")
             st.markdown(
-                '''* **`Github`** ⭐ https://github.com/Developer-Alok * **`Portfolio`** 🌐 https://gobindagagan.vercel.app/''')
+                '''* **`Github`** ⭐ https://github.com/Developer-Alok * 
+                **`Portfolio`** 🌐 https://gobindagagan.vercel.app/''')
+
+        # Add the Predictive Modeling for Heart Failure message
+        st.markdown(
+            """
+    <div style="border: 2px solid #4CAF50; padding: 15px; border-radius: 5px; background-color: #ADD8E6; color: #333;">
+        <h2 style="color: #4CAF50;">Thank you for choosing our Predictive Modeling for Heart Failure!</h2>
+        <p>We are dedicated to providing a powerful tool that enhances understanding and awareness of heart health. Our predictive model leverages diverse data and insights to help individuals assess their risk of heart failure effectively.</p>
+        <p>We hope this resource proves invaluable to you and others in promoting a healthier future.</p>
+    </div>
+    """,
+            unsafe_allow_html=True
+        )
 
     # Feedback Tab
     # Email configuration (use environment variables for security)
