@@ -543,4 +543,3 @@ if authenticate_user():
     # Start the background image change in a separate thread
     threading.Thread(target=change_background_images, daemon=True).start()
     main_app()
-
