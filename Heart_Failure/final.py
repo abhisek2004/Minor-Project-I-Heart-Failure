@@ -106,22 +106,22 @@ def create_pdf(name, age, sex, chest_pain_type, resting_bp, cholesterol, fasting
     p = canvas.Canvas(buffer, pagesize=letter)
 
     # Set background image
-    background_image = ImageReader("img/pdf.jpg")
+    background_image = ImageReader("img/failure_2.jpg")
     p.drawImage(background_image, 0, 0, width=letter[0], height=letter[1])
 
     # Add title
     p.setFont("Helvetica-Bold", 24)
     p.setFillColor(colors.darkred)
-    p.drawString(100, 750, "🫀 Heart Failure Prediction Report 🩺")
+    p.drawString(100, 750, " Heart Failure Prediction Report ")
 
     # Add project details
     p.setFont("Helvetica-Bold", 16)
     p.setFillColor(colors.black)
     text_lines = [
         "Project: Heart Disease Prediction",
-        "Created by: Abhisek Panda (Lead 👨‍💻),",
-        "Debabrata Mishra (Data Analyst 📊),",
-        "Gobinda Gagan Dey (MERN Developer 💻),",
+        "Created by: Abhisek Panda (Lead),",
+        "Debabrata Mishra (Data Analyst),",
+        "Gobinda Gagan Dey (MERN Developer),",
         f"Download Date: {datetime.datetime.now().date()}"
     ]
 
