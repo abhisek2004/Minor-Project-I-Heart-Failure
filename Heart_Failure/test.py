@@ -81,18 +81,21 @@ def authenticate_user():
     email = st.text_input(label="Email:", value="", key="email")
     full_name = st.text_input(label="Full Name:", value="", key="full_name")
 
-    # Check if both fields are filled
-    if email and full_name:
-        # Save user data to MongoDB
-        st.session_state["users_collection"].insert_one(
-            {"email": email, "full_name": full_name})
-        st.session_state["authenticated"] = True
-        st.success("Login successful!")
-    else:
-        st.warning("⚠️ Please enter both Name and Email to proceed!")
+    # Add a Login button
+    login_button = st.button("Login")
+
+    if login_button:
+        # Check if both fields are filled
+        if email and full_name:
+            # Save user data to MongoDB
+            st.session_state["users_collection"].insert_one(
+                {"email": email, "full_name": full_name})
+            st.session_state["authenticated"] = True
+            st.success("Login successful!")
+        else:
+            st.warning("⚠️ Please enter both Name and Email to proceed!")
 
     return False
-
 
 # Function to create the PDF
 
