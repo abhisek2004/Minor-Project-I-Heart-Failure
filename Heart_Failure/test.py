@@ -35,24 +35,24 @@ st.session_state["feedback_collection"] = st.session_state["db"].get_collection(
 st.session_state["rating_collection"] = st.session_state["db"].get_collection(
     "Rating")
 
-collection=st.session_state["db"].get_collection("Result")
+collection = st.session_state["db"].get_collection("Result")
 # Load the model once
 if "model" not in st.session_state:
     st.session_state["model"] = joblib.load(open('model.pkl', 'rb'))
 
-    # List of image URLs or paths for the background
-    image_paths = [
-        "img\failure_1.jpg",
-        "img\failure_2.jpg",
-        "img\failure_3.jpg",
-        "img\failure_4.jpg",
-        "img\failure_5.jpg",
-        "img\failure_6.jpg",
-        "img\failure_7.jpg",
-        "img\failure_8.jpg",
-        "img\failure_9.jpg",
-        "img\pdf.jpg",
-    ]
+# List of image URLs or paths for the background
+image_paths = [
+    "img\failure_1.jpg",
+    "img\failure_2.jpg",
+    "img\failure_3.jpg",
+    "img\failure_4.jpg",
+    "img\failure_5.jpg",
+    "img\failure_6.jpg",
+    "img\failure_7.jpg",
+    "img\failure_8.jpg",
+    "img\failure_9.jpg",
+    "img\pdf.jpg",
+]
 # Function to change background images
 
 
@@ -148,7 +148,8 @@ def create_pdf(name, age, sex, chest_pain_type, resting_bp, cholesterol, fasting
         f"Exercise Induced Angina: {'Yes' if exercise_angina == 1 else 'No'}",
         f"Oldpeak: {oldpeak}",
         f"Slope of the Peak Exercise ST Segment: {st_slope}",
-        f"Prediction Result: {'No possibility of heart attack' if prediction_result == 0 else 'Future heart attack detected'}"
+        f"Prediction Result: {
+            'No possibility of heart attack' if prediction_result == 0 else 'Future heart attack detected'}"
     ]
 
     for detail in details:
@@ -383,7 +384,7 @@ def main_app():
                             'exercise_angina': 'Yes' if exercise_angina_values == 1 else 'No',
                             'oldpeak': oldpeak,
                             'st_slope': st_slope
-                            }
+                        }
                         collection.insert_one(document)
 
                 except Exception as e:
@@ -484,7 +485,8 @@ def main_app():
 
         # Body of the email
         body = f"Bug Report: {feedback_data['bug_report']}\n\n"
-        body = f"Reported by: {feedback_data['full_name']} ({feedback_data['email']})"
+        body = f"Reported by: {
+            feedback_data['full_name']} ({feedback_data['email']})"
         msg.attach(MIMEText(body, 'plain'))
 
         # Attach the file
@@ -615,7 +617,8 @@ def main_app():
                 }
                 st.session_state["rating_collection"].insert_one(
                     feedback_rating_data)  # Save to Rating collection
-                st.markdown(f"Thank you for your feedback! You rated us {selected_star} star{'s' if selected_star > 1 else ''} 🌟")
+                st.markdown(f"Thank you for your feedback! You rated us {
+                            selected_star} star{'s' if selected_star > 1 else ''} 🌟")
 
 
 # Run the application
