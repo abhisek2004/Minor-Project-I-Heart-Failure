@@ -338,10 +338,10 @@ def main_app():
                             '0 (No possibility of heart attack), 1 (Future heart attack detected)')
 
                         # Conditional message display based on prediction
-                        if predicted[0] == 1:
+                        if predicted[0] == 0:
                             st.success(
                                 "✅ Good news! No possibility of heart attack")
-                        elif predicted[0] == 0:
+                        elif predicted[0] == 1:
                             st.warning("⚠ Future heart attack detected")
                         else:
                             st.error("Unexpected prediction value")
