@@ -257,6 +257,8 @@ Explore our project website for a comprehensive overview of all the details, fea
 ![12](https://github.com/user-attachments/assets/cf5663f2-1c81-4813-bba9-2f0629c9e462)
 ![13](https://github.com/user-attachments/assets/3723e9fa-c1c7-4e6c-b416-282781b625e1)
 ![14](https://github.com/user-attachments/assets/8126d289-d02f-4fea-b79a-db223710dd6b)
+![15](https://github.com/user-attachments/assets/8c3f0f44-eee4-47ea-b0a4-496d158669e2)
+![16](https://github.com/user-attachments/assets/8f3592fb-9fb5-423b-a353-47985a1a72c1)
 
 ---
 
