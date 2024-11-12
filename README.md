@@ -242,6 +242,20 @@ Check out our PowerPoint presentation for a detailed overview of the project! �
 🌐 **Project Website Overview**  
 
 Explore our project website for a comprehensive overview of all the details, features, and updates! 📅 Dive into sections like project goals, milestones, team introductions, and much more to get a clear understanding of what we’re working on.
+![1](https://github.com/user-attachments/assets/6525d3d9-c4ef-4852-a1c6-887574ad1011)
+![5](https://github.com/user-attachments/assets/1229ca05-4da7-4668-a0fa-841778e48570)
+![4](https://github.com/user-attachments/assets/059242ee-6d54-4582-94fd-51ae7e553b7a)
+![3](https://github.com/user-attachments/assets/e95a07e2-9d77-4d76-bcc9-760970b12294)
+![2](https://github.com/user-attachments/assets/814171bd-4e26-4886-bc16-268996c75f8b)
+![9](https://github.com/user-attachments/assets/88755a08-8d92-4a7a-b023-090b78b2c2e2)
+![8](https://github.com/user-attachments/assets/d989ae9b-f587-4706-ad2b-04b3db0c53c2)
+![7](https://github.com/user-attachments/assets/e251f0ef-c437-4732-8f79-6a1bcddf15cb)
+![6](https://github.com/user-attachments/assets/e980f7a8-9953-4ece-ab79-de7fe37ece13)
+![10](https://github.com/user-attachments/assets/ac1864f7-6432-4ea0-a03c-2cc46465a62b)
+![14](https://github.com/user-attachments/assets/8126d289-d02f-4fea-b79a-db223710dd6b)
+![13](https://github.com/user-attachments/assets/3723e9fa-c1c7-4e6c-b416-282781b625e1)
+![12](https://github.com/user-attachments/assets/cf5663f2-1c81-4813-bba9-2f0629c9e462)
+![11](https://github.com/user-attachments/assets/2bde647f-20ea-4837-b99b-6e0dfcd49d8c)
 
 ---
 
