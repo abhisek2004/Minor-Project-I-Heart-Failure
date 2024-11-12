@@ -1,3 +1,4 @@
+Main File ipynb file
 Requirements file for this project you've described, you need to list all the Python libraries and dependencies used in your code. Based on the provided code, here’s a `requirements.txt` file with the necessary libraries:
 
 ```
@@ -25,3 +26,42 @@ ydata-profiling==4.0.0
    ```
 
 This will install the specified versions of the libraries, ensuring compatibility across different environments.
+
+
+Front file 
+
+Requirements file for this project, you need to include all the libraries you’ve imported in the code snippet. Based on your code, the `requirements.txt` file would look as follows:
+
+### `requirements.txt`:
+
+```
+streamlit==1.21.0
+numpy==1.24.2
+pandas==1.5.3
+joblib==1.2.0
+pymongo==4.5.0
+reportlab==3.6.2
+smtplib==3.6.0  # Included by default in Python's standard library, so not necessary to include
+email==6.0.0   # Included by default in Python's standard library, so not necessary to include
+```
+
+### Explanation of Libraries:
+
+1. **streamlit**: Used for creating the web app interface.
+2. **numpy**: For numerical operations, often used with data.
+3. **pandas**: For data manipulation (dataframes, CSV handling).
+4. **joblib**: For saving and loading Python objects, often used for machine learning models.
+5. **pymongo**: For interacting with MongoDB (used for database operations).
+6. **reportlab**: For generating PDFs (including text, images, and styling).
+7. **smtplib**: Standard Python library for sending emails (you don't need to install this manually as it is part of Python's standard library).
+8. **email**: Also part of Python’s standard library for composing and sending email messages.
+
+### Instructions for Installing the Dependencies:
+
+1. Save the above content into a `requirements.txt` file.
+2. To install all dependencies in a virtual environment, run the following command in your terminal:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+Since `smtplib` and `email` are part of Python's standard library, you don't need to install them separately.
