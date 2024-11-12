@@ -239,6 +239,11 @@ Check out our PowerPoint presentation for a detailed overview of the project! �
 ![Predictive Model for Heart failure-15](https://github.com/user-attachments/assets/de4d679e-700c-4322-a6e2-cae66e949f4f)
 
 ---
+🌐 **Project Website Overview**  
+
+Explore our project website for a comprehensive overview of all the details, features, and updates! 📅 Dive into sections like project goals, milestones, team introductions, and much more to get a clear understanding of what we’re working on.
+
+---
 
 ## <h2 align="center"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Red%20Heart.png" width="35" height="35">Our Contributors</h2>
 <h3>Thank you for contributing to our repository</h3>
