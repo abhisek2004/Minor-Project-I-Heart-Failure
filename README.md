@@ -270,10 +270,6 @@ You can view the project PDF in an interactive flip book format here:
 
 ---
 
-Feel free to explore the project and interact with the materials in both formats!
-
----
-
 ## <h2 align="center"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Red%20Heart.png" width="35" height="35">Our Contributors</h2>
 <h3>Thank you for contributing to our repository</h3>
 
