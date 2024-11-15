@@ -262,6 +262,26 @@ Explore our project website for a comprehensive overview of all the details, fea
 
 ---
 
+## 🚀 GitHub Project
+
+Check out the project on GitHub:
+
+[🔗 GitHub Project Link](https://lnkd.in/g7cMWxMC)
+
+---
+
+## 📖 View the PDF in Flip Book Format
+
+You can view the project PDF in an interactive flip book format here:
+
+[📚 Flip Book PDF](https://online.fliphtml5.com/jgrqn/xwki/)
+
+---
+
+Feel free to explore the project and interact with the materials in both formats!
+
+---
+
 ## <h2 align="center"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Red%20Heart.png" width="35" height="35">Our Contributors</h2>
 <h3>Thank you for contributing to our repository</h3>
 
