@@ -262,12 +262,6 @@ Explore our project website for a comprehensive overview of all the details, fea
 
 ---
 
-## 🚀 GitHub Project
-
-Check out the project on GitHub:
-
-
-
 ## 📖 View the PDF in Flip Book Format
 
 You can view the project PDF in an interactive flip book format here:
