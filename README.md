@@ -266,9 +266,7 @@ Explore our project website for a comprehensive overview of all the details, fea
 
 Check out the project on GitHub:
 
-[🔗 GitHub Project Link](https://lnkd.in/g7cMWxMC)
 
----
 
 ## 📖 View the PDF in Flip Book Format
 
