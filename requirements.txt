@@ -3,3 +3,5 @@ numpy
 pandas
 joblib
 pymongo
+reportlab
+scikit-learn
