@@ -4,4 +4,4 @@ pandas
 joblib
 pymongo
 reportlab
-sklearn
+scikit-learn
