@@ -25,7 +25,7 @@ if "authenticated" not in st.session_state:
 # MongoDB connection (initialize once)
 if "client" not in st.session_state:
     st.session_state["client"] = pymongo.MongoClient(
-        "mongodb+srv://abhisekpanda2004guddul:Y3pU0wNKOW8r1ea7@cluster0.0khgj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+        "mongodb+srv://manasranjanpradhan2004:pRZ0F9oyRoY1FHxs@university.m80kj.mongodb.net/University?retryWrites=true&w=majority"
     )
 st.session_state["db"] = st.session_state["client"].get_database("User_Login")
 st.session_state["users_collection"] = st.session_state["db"].get_collection(
